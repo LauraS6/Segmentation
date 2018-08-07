@@ -1,5 +1,6 @@
 # Segmentation
 « Segmentation du foie et de la cavité abdominale pour l'appariement donneur / receveur en transplantation hépatique »
+
 NOTICE D’UTILISATION DES MODULES PERSONNALISÉS CRÉÉS SOUS 3D SLICER
  
 UTILISATION DE 3D SLICER POUR LA
