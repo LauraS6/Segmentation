@@ -320,9 +320,28 @@ C)	SUPERPOSITION DU FOIE SEGMENTÉ DU DONNEUR ET DE LA CAVITÉ ABDOMINALE SEGMEN
 
 
 4. SUPERPOSER LES IMAGES CHARGÉES
+•	Cliquer sur "Exécuter" : une pop-up "General Registration (Elastix)" apparaît ; cette fenêtre
+va permettre d’effectuer un recalage rigide 3D entre les segmentations du foie et de la
+cavité abdominale
+•	Dans "General Registration (Elastix)" :
+	o Pour l’option "Fixed volume", choisir le volume de la cavité abdominale segmentée
+qui vient d’être chargé
+	o Pour l’option "Moving volume", choisir le volume du foie segmenté qui vient d’être
+chargé
+	o Pour l’option "Preset", choisir "generic rigid (all)"
+	o Choisir "Create new Volume" dans l’option "Output volume" et cliquer sur le volume
+créé "Volume" s’il n’est pas déjà présélectionné
+	o Cliquer sur "Apply" puis attendre la fin du recalage
+	o Dès qu’apparaît "Registration is completed", dans la box sous "Apply", fermer la
+fenêtre "General Registration (Elastix)" en cliquant sur la croix en haut à droite de la
+fenêtre
+
 •	Choisir le "Volume d’entrée de la cavité" correspondant au volume préalablement chargé de la cavité abdominale segmentée au format NIFTI
-•	Choisir le "Volume d’entrée du foie" correspondant au volume préalablement chargé du foie segmenté au format NIFTI
-•	Cliquer sur "Exécuter" : l’utilisateur peut visualiser les deux volumes superposés en transparence coupe par coupe et dans n’importe quel plan anatomique
+•	Choisir le "Volume du foie segmenté après recalage" correspondant au volume créé après
+application de la fonction de recalage 3D : "Volume_i" (la valeur de i apparaît si l’opération
+de recalage est effectuée plusieurs fois)
+•	Cliquer sur "Superposer les segmentations" : l’utilisateur peut visualiser les deux volumes
+superposés, en transparence, coupe par coupe, et dans n’importe quel plan anatomique
 
 
 
