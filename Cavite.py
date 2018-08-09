@@ -36,7 +36,8 @@ class Cavite(ScriptedLoadableModule):
     self.parent.categories = [u"Pour le RECEVEUR : Volum\u00e9trie et distances dans la cavit\u00e9 abdominale"]
     self.parent.dependencies = []
     self.parent.contributors = ["Laura Seimpere"]
-    self.parent.helpText = """
+    self.parent.helpText = u"""
+    Segmentation de la cavit\u00e9 abdominale du receveur afin de connaitre ses attributs (volume, distances choisies par l\u00b4utilisateur).
 """
     self.parent.helpText += self.getDefaultModuleDocumentationLink()
     self.parent.acknowledgementText = """
@@ -66,9 +67,7 @@ class CaviteWidget(ScriptedLoadableModuleWidget):
     self.labelNode = None
     self.fileName = None
     self.fileDialog = None
-    
-    # Instantiate and connect widgets ...
-   
+       
     self.step0CollapsibleButton = ctk.ctkCollapsibleButton()
     self.step0CollapsibleButton.text = u"Receveur : Volume et distances de la cavit\u00e9 abdominale"
     self.layout.addWidget(self.step0CollapsibleButton)
@@ -195,7 +194,6 @@ class CaviteWidget(ScriptedLoadableModuleWidget):
     self.fillValueEdit.setToolTip(u"Choisir l\u00b4intensit\u00e9 de voxel qui sera utilis\u00e9e pour remplir les r\u00e9gions rogn\u00e9es.")
     self.fillValueEdit.minimum = -32768
     self.fillValueEdit.maximum = 65535
-    #self.step2FormLayout.addRow("Fill value : ", self.fillValueEdit)
     
 					# Output volume selector
     self.outputVolumeSelector = slicer.qMRMLNodeComboBox()
@@ -495,20 +493,20 @@ class CaviteWidget(ScriptedLoadableModuleWidget):
     self.tmpNodesvolsag = []
     self.tmpNodesdistsag = []
     
-    # Define list of widgets for updateGUIFromParameterNode, updateParameterNodeFromGUI, and addGUIObservers
+					# Define list of widgets for updateGUIFromParameterNode, updateParameterNodeFromGUI, and addGUIObservers
     self.valueEditWidgets = {"RognerHorsSurface": self.clipOutsideSurfaceCheckBox, "ValeurRemplissage": self.fillValueEdit}
     self.nodeSelectorWidgets = {"InputVolume": self.inputVolumeSelector, "ModeleRognage": self.clippingModelSelector, "MarqueurRognage": self.clippingMarkupSelector, "VolumedeSortie": self.outputVolumeSelector}
 
-    # Use singleton parameter node (it is created if does not exist yet)
+					# Use singleton parameter node (it is created if does not exist yet)
     parameterNode = self.logic.getParameterNode()
-    # Set parameter node (widget will observe it and also updates GUI)
+    
+					# Set parameter node (widget will observe it and also updates GUI)
     self.setAndObserveParameterNode(parameterNode)
 
     self.setAndObserveClippingMarkupNode(self.clippingMarkupSelector.currentNode())
     
     self.addGUIObservers()
  
-    
 					# Add vertical spacer
     self.layout.addStretch(1)  
  
@@ -544,7 +542,6 @@ class CaviteWidget(ScriptedLoadableModuleWidget):
       reformatModuleWidget.setMRMLScene(slicer.app.mrmlScene())
       reformatModuleWidget.show() 
       self.masterVolumeNode = self.inputSlicer.currentNode() 
-
       prompt = ctk.ctkMessageBox()
       scriptpath = os.path.dirname(__file__)
       iconpath = os.path.join(scriptpath, 'Resources', 'Icons', 'Cavite.png')
@@ -570,7 +567,6 @@ class CaviteWidget(ScriptedLoadableModuleWidget):
     self.applyButtonsag.enabled = self.masterVolumeNode and slicer.mrmlScene.GetNodeByID(self.masterVolumeNode.GetID())
     
     
-
 
 #######################
 # FONCTIONS POUR ETAPES
@@ -683,47 +679,53 @@ class CaviteWidget(ScriptedLoadableModuleWidget):
 #######################  
   def setAndObserveParameterNode(self, parameterNode):
     if parameterNode == self.parameterNode and self.parameterNodeObserver:
-					# no change and node is already observed
+					# Pas de changement et le noeud est deja observe
       return
-					# Remove observer to old parameter node
+					# Enlever observateur au dernier parametre du noeud 
     if self.parameterNode and self.parameterNodeObserver:
       self.parameterNode.RemoveObserver(self.parameterNodeObserver)
       self.parameterNodeObserver = None
-					# Set and observe new parameter node
+					# Charger et observer le nouveau parametre du noeud 
     self.parameterNode = parameterNode
     if self.parameterNode:
       self.parameterNodeObserver = self.parameterNode.AddObserver(vtk.vtkCommand.ModifiedEvent, self.onParameterNodeModified)
-					# Update GUI
+					# Mettre a jour GUI
     self.updateGUIFromParameterNode()
+
 
   def setAndObserveClippingMarkupNode(self, clippingMarkupNode):
     if clippingMarkupNode == self.clippingMarkupNode and self.clippingMarkupNodeObserver:
-					# no change and node is already observed
+					# Pas de changement et le noeud est deja observe
       return
-					# Remove observer to old parameter node
+					# Enlever observateur au dernier parametre du noeud 
     if self.clippingMarkupNode and self.clippingMarkupNodeObserver:
       self.clippingMarkupNode.RemoveObserver(self.clippingMarkupNodeObserver)
       self.clippingMarkupNodeObserver = None
-					# Set and observe new parameter node
+					# Charger et observer le nouveau parametre du noeud 
     self.clippingMarkupNode = clippingMarkupNode
     if self.clippingMarkupNode:
       self.clippingMarkupNodeObserver = self.clippingMarkupNode.AddObserver(vtk.vtkCommand.ModifiedEvent, self.onClippingMarkupNodeModified)
-					# Update GUI
+					# Mettre a jour GUI
     self.updateModelFromClippingMarkupNode()
+    
     
   def getParameterNode(self):
     return self.parameterNode
 
+
   def onClippingMarkupNodeModified(self, observer, eventid):
     self.updateModelFromClippingMarkupNode()
     
+    
   def onParameterNodeModified(self, observer, eventid):
     self.updateGUIFromParameterNode()
+
 
   def updateModelFromClippingMarkupNode(self):
     if not self.clippingMarkupNode or not self.clippingModelSelector.currentNode():
       return
     self.logic.updateModelFromMarkup(self.clippingMarkupNode, self.clippingModelSelector.currentNode())
+
 
   def updateGUIFromParameterNode(self):
     parameterNode = self.getParameterNode()
@@ -745,6 +747,7 @@ class CaviteWidget(ScriptedLoadableModuleWidget):
       self.nodeSelectorWidgets[parameterName].setCurrentNodeID(parameterNode.GetNodeReferenceID(parameterName))
       self.nodeSelectorWidgets[parameterName].blockSignals(oldBlockSignalsState)
 
+
   def updateParameterNodeFromGUI(self):
     parameterNode = self.getParameterNode()
     oldModifiedState = parameterNode.StartModify()
@@ -763,6 +766,7 @@ class CaviteWidget(ScriptedLoadableModuleWidget):
       parameterNode.SetNodeReferenceID(parameterName, self.nodeSelectorWidgets[parameterName].currentNodeID)
     parameterNode.EndModify(oldModifiedState)
 
+
   def addGUIObservers(self):
     for parameterName in self.valueEditWidgets:
       widgetClassName = self.valueEditWidgets[parameterName].metaObject().className()      
@@ -772,6 +776,7 @@ class CaviteWidget(ScriptedLoadableModuleWidget):
         self.valueEditWidgets[parameterName].connect("clicked()", self.updateParameterNodeFromGUI)
     for parameterName in self.nodeSelectorWidgets:
       self.nodeSelectorWidgets[parameterName].connect("currentNodeIDChanged(QString)", self.updateParameterNodeFromGUI)
+
 
   def removeGUIObservers(self):
     for parameterName in self.valueEditWidgets:
@@ -783,6 +788,8 @@ class CaviteWidget(ScriptedLoadableModuleWidget):
     for parameterName in self.nodeSelectorWidgets:
       self.nodeSelectorWidgets[parameterName].disconnect("currentNodeIDChanged(QString)", self.updateParameterNodeFromGUI)
       
+      
+					# Mise a jour du bouton execution
   def updateApplyButtonState(self):
     if not self.inputVolumeSelector.currentNode():
       self.applyButton.toolTip = u"Volume d\u00b4entr\u00e9e n\u00e9cessaire. Volume de rognage avec mod\u00e8le de surface est d\u00e9sactiv\u00e9."
@@ -797,11 +804,14 @@ class CaviteWidget(ScriptedLoadableModuleWidget):
       self.applyButton.toolTip = u"Volume de rognage avec mod\u00e8le de surface."
       self.applyButton.enabled = True
       
+      
   def onInputVolumeSelect(self, node):
     self.updateApplyButtonState()
 
+
   def onClippingModelSelect(self, node):
     self.updateApplyButtonState()
+
 
   def onClippingMarkupSelect(self, node):
     placeModePersistence = 1
@@ -858,6 +868,7 @@ class CaviteWidget(ScriptedLoadableModuleWidget):
     self.grayscaleNode = node
     self.applyButton9.enabled = bool(self.grayscaleNode) and bool(self.labelNode)
 
+
   def onLabelSelect(self):
     volumesLogic = slicer.modules.volumes.logic()
     lm = slicer.app.layoutManager()
@@ -890,6 +901,7 @@ class CaviteWidget(ScriptedLoadableModuleWidget):
       vollabel= volumesLogic.CreateAndAddLabelVolume(slicer.mrmlScene, outfin, "cavite_label" )
       self.labelNode = volumesLogic.CreateLabelVolumeFromVolume(slicer.mrmlScene, vollabel, outfin)
       self.applyButton9.enabled = bool(self.grayscaleNode) and bool(self.labelNode)
+
 
   def onApplyButton9(self):
     """Calculate the label statistics
@@ -935,6 +947,7 @@ class CaviteWidget(ScriptedLoadableModuleWidget):
     slicer.app.applicationLogic().GetSelectionNode().SetReferenceActiveTableID(table.GetID())
     slicer.app.applicationLogic().PropagateTableSelection()
 
+
 					# Fonction de sauvegarde des resultats
   def onSave(self):
     """save the label statistics
@@ -948,8 +961,10 @@ class CaviteWidget(ScriptedLoadableModuleWidget):
       self.fileDialog.connect("fileSelected(QString)", self.onFileSelected)
     self.fileDialog.show()
 
+
   def onFileSelected(self,fileName):
     self.logicvol.saveStats(fileName)
+
 
   def populateStats(self):
     if not self.logicvol:
@@ -1049,11 +1064,13 @@ class CaviteWidget(ScriptedLoadableModuleWidget):
         
     self.tmpNodesdistcor = [self.DistancecorNode]
   
+  
   def onSeedSelectdistcor(self, caller, event):
     if self.DistancecorNode :
       self.applyButtoncor.enabled = self.DistancecorNode.GetNumberOfMarkups()
     else:
 	    self.applyButtoncor.enabled = False
+	   
 	   
   def onApplyButtoncor(self):  
     self.applyButtoncor.text = "Working..."
@@ -1062,6 +1079,7 @@ class CaviteWidget(ScriptedLoadableModuleWidget):
     positionfinaledistcor = self.addSeedCoordsdistcor(self.DistancecorNode, self.masterVolumeNode)
     self.applyButtoncor.text = "Calculer la distance"
     self.cleanup()
+   
    
   def addSeedCoordsdistcor(self, fidNode, masterVolumeNode):
     seed = fidNode.GetName()
@@ -1126,16 +1144,19 @@ class CaviteWidget(ScriptedLoadableModuleWidget):
    
     self.tmpNodesdistsag = [self.DistancesagNode]
   
+  
   def onSeedSelectdistsag(self, caller, event):
     if self.DistancesagNode:
       self.applyButtonsag.enabled = self.DistancesagNode.GetNumberOfMarkups()
     else:
 	    self.applyButtonsag.enabled = False
 	   
+	   
   def onApplyButtonsag(self):  
     self.logic = CaviteLogic()
     positionfinaledistsag = self.addSeedCoordsdistsag(self.DistancesagNode, self.masterVolumeNode)
     self.cleanup()
+   
    
   def addSeedCoordsdistsag(self, fidNode, masterVolumeNode):
     seed = fidNode.GetName()
@@ -1198,16 +1219,19 @@ class CaviteWidget(ScriptedLoadableModuleWidget):
     
     self.tmpNodesdist = [self.DistanceaxNode]
   
+  
   def onSeedSelectdistax(self, caller, event):
     if self.DistanceaxNode :
       self.applyButtonax.enabled = self.DistanceaxNode.GetNumberOfMarkups() 
     else:
 	    self.applyButtonax.enabled = False
 	   
+	   
   def onApplyButtonax(self):  
     self.logic = CaviteLogic()
     positionfinaledistax = self.addSeedCoordsdistax(self.DistanceaxNode, self.masterVolumeNode)
     self.cleanup()
+   
    
   def addSeedCoordsdistax(self, fidNode, masterVolumeNode):
     seed = fidNode.GetName()
@@ -1245,9 +1269,11 @@ class CaviteWidget(ScriptedLoadableModuleWidget):
     self.statusLabelcor.appendPlainText(text)
     slicer.app.processEvents() # force update
 
+
   def addLogsag(self, text):
     self.statusLabelsag.appendPlainText(text)
     slicer.app.processEvents()
+
 
   def addLogax(self, text):
     self.statusLabelax.appendPlainText(text)
@@ -1271,20 +1297,24 @@ class CaviteLogic(ScriptedLoadableModuleLogic):
      ScriptedLoadableModuleLogic.__init__(self, parent)
      self.logCallback = None
 
+
   def addLogcor(self, text):
     logging.info(text)
     if self.logCallback:
       self.logCallback(text)
+
 
   def addLogsag(self, text):
     logging.info(text)
     if self.logCallback:
       self.logCallback(text)
    
+   
   def addLogax(self, text):
     logging.info(text)
     if self.logCallback:
       self.logCallback(text)  
+      
       
   def hasImageData(self,volumeNode):
     """This is an example logic method that
@@ -1298,6 +1328,7 @@ class CaviteLogic(ScriptedLoadableModuleLogic):
       logging.debug('hasImageData failed: no image data in volume node')
       return False
     return True
+
 
   def isValidInputOutputData(self, inputVolumeNode, outputVolumeNode):
     """Validates if the output is not the same as input
@@ -1323,6 +1354,7 @@ class CaviteLogic(ScriptedLoadableModuleLogic):
     node.SetParameter("RognerHorsSurface", "1")
     node.SetParameter("ValeurRemplissage", "0")
     return node
+
 
   def clipVolumeWithModel(self, inputVolume, clippingModel, clipOutsideSurface, fillValue, outputVolume):
     """
@@ -1401,6 +1433,7 @@ class CaviteLogic(ScriptedLoadableModuleLogic):
     filename = os.path.join(os.path.expanduser("~"),'\Documents\TroisDSlicer\CaviteAbdoReceveurData')
     slicer.util.saveScene(filename)
     return outfoie
+
 
   def updateModelFromMarkup(self, inputMarkup, outputModel):
     """
@@ -1559,6 +1592,7 @@ class LabelStatLogic(ScriptedLoadableModuleLogic):
         self.labelStats[i,"Mediane"] = round(medians.GetMedian(),3)
         self.labelStats[i,"StdDev"] = round(stat1.GetStandardDeviation()[0],3)
    
+   
   def getColorNode(self):
     """Returns the color node corresponding to the labelmap. If a color node is explicitly
     specified then that will be used. Otherwise the color node is retrieved from the display node
@@ -1601,6 +1635,7 @@ class LabelStatLogic(ScriptedLoadableModuleLogic):
     table.EndModify(tableWasModified)
     return table
 
+
   def statsAsCSV(self):
     """
     print comma separated value file with header keys in quotes
@@ -1624,13 +1659,11 @@ class LabelStatLogic(ScriptedLoadableModuleLogic):
       csv += line
     return csv
 
+
   def saveStats(self,fileName):
     fp = open(fileName, "w")
     fp.write(self.statsAsCSV())
     fp.close()
-
-
-
 
 
 
@@ -1648,11 +1681,13 @@ class CaviteTest(ScriptedLoadableModuleTest):
     """
     slicer.mrmlScene.Clear(0)
 
+
   def runTest(self):
     """Run as few or as many tests as needed here.
     """
     self.setUp()
     self.test_Cavite1()
+
 
   def test_Cavite1(self):
     self.delayDisplay("Starting the test")
