@@ -45,8 +45,8 @@ class SegmentationFoie(ScriptedLoadableModule):
     self.parent.categories = ["Pour le DONNEUR : Segmentation semi-automatique du foie"]
     self.parent.dependencies = []
     self.parent.contributors = ["Laura Seimpere"]
-    self.parent.helpText = """
-Segmentation du foie par une succession d'etapes; obtention des distances principales et du volume du foie segmente par la methode; comparaison avec le volume reference du meme foie segmente 'parfaitement'
+    self.parent.helpText = u"""
+Segmentation du foie du donneur par une succession d'\u00e9tapes; obtention des distances principales et du volume du foie segment\u00e9 par la m\u00e9thode; comparaison avec le volume r\u00e9f\u00e9rence du m\u00eame foie segment\u00e9 'parfaitement' pour quantifier la fiabilit\u00e9 du module cr\u00e9\u00e9.
 """
     self.parent.helpText += self.getDefaultModuleDocumentationLink()
     self.parent.acknowledgementText = """
@@ -314,10 +314,10 @@ class SegmentationFoieWidget(ScriptedLoadableModuleWidget):
     
     
 	  #########
-    # Step 5 : Operations morphologiques
+    # Step 5 : Operations de morphologie mathematique
 	  #########
     step05CollapsibleButton = ctk.ctkCollapsibleButton()
-    step05CollapsibleButton.text = u"Etape 5 : Op\u00e9rations morphologiques"
+    step05CollapsibleButton.text = u"Etape 5 : Op\u00e9rations de morphologie math\u00e9matique"
     self.layout.addWidget(step05CollapsibleButton)
     stepsFormLayout = qt.QFormLayout(step05CollapsibleButton)
 
@@ -335,19 +335,32 @@ class SegmentationFoieWidget(ScriptedLoadableModuleWidget):
     self.inputSelector.setMaximumWidth(250)
     stepsFormLayout.addRow(u"  Volume d\u00b4entr\u00e9e :                        ", self.inputSelector)
     
-					# Choix des operations morphologiques
+					# Choix des operations de morphologie mathematique
     self.opening = qt.QRadioButton("Ouverture            ")
+    self.elemstruc = qt.QComboBox()
+    self.inputDistLabel = qt.QLabel(u"  Taille de l\u00b4\u00e9l\u00e9ment structurant : ")
+    self.elemstruc.addItem("2",1)
+    self.elemstruc.addItem("3",2)
+    self.elemstruc.addItem("4",3)
+    self.elemstruc.addItem("5",4)
+    self.elemstruc.addItem("6",5)
+    self.elemstruc.addItem("7",6)
+    self.elemstruc.addItem("8",7)
+    self.elemstruc.addItem("9",8)
+    self.elemstruc.addItem("10",9)
     self.dilate = qt.QRadioButton("Dilatation            ")
     self.erosion = qt.QRadioButton("Erosion")
     self.closing = qt.QRadioButton("Fermeture")
     self.remp = qt.QRadioButton("Remplisage des trous")
     self.opening.checked = True
+    stepsFormLayout.addRow(self.inputDistLabel, self.elemstruc)
     stepsFormLayout.addRow(self.opening, self.closing)
+    self.elemstruc.setMaximumWidth(44)
     stepsFormLayout.addRow(self.dilate, self.erosion)
     stepsFormLayout.addRow(self.remp)
      
 					# Apply button step 5
-    self.applyButton5 = qt.QPushButton(u"Ex\u00e9cuter la morphologie")
+    self.applyButton5 = qt.QPushButton(u"Ex\u00e9cuter l\u00b4op\u00e9ration de morphologie math\u00e9matique")
     self.applyButton5.toolTip = u"Ex\u00e9cuter l\u00b4algorithme."
     self.applyButton5.setMaximumWidth(350)
     self.applyButton5.enabled = False
@@ -430,7 +443,7 @@ class SegmentationFoieWidget(ScriptedLoadableModuleWidget):
     # Step 7 : Fermeture morphologique
 	  #########
     step07CollapsibleButton = ctk.ctkCollapsibleButton()
-    step07CollapsibleButton.text = u"Etape 7 : Op\u00e9rations morphologiques pour affiner la segmentation"
+    step07CollapsibleButton.text = u"Etape 7 : Op\u00e9rations de morphologie math\u00e9matique pour affiner la segmentation"
     self.layout.addWidget(step07CollapsibleButton)
     stepsFormLayout = qt.QFormLayout(step07CollapsibleButton)
     
@@ -448,13 +461,26 @@ class SegmentationFoieWidget(ScriptedLoadableModuleWidget):
     self.inputSelector2.setMaximumWidth(250)
     stepsFormLayout.addRow(u"  Volume d\u00b4entr\u00e9e :                        ", self.inputSelector2)
 
-					# Choix des operations morphologiques
+					# Choix des operations de morphologie mathematique
     self.opening2 = qt.QRadioButton("Ouverture")
+    self.elemstruc2 = qt.QComboBox()
+    self.inputDistLabel = qt.QLabel(u"  Taille de l\u00b4\u00e9l\u00e9ment structurant : ")
+    self.elemstruc2.addItem("2",1)
+    self.elemstruc2.addItem("3",2)
+    self.elemstruc2.addItem("4",3)
+    self.elemstruc2.addItem("5",4)
+    self.elemstruc2.addItem("6",5)
+    self.elemstruc2.addItem("7",6)
+    self.elemstruc2.addItem("8",7)
+    self.elemstruc2.addItem("9",8)
+    self.elemstruc2.addItem("10",9)
     self.dilate2 = qt.QRadioButton("Dilatation")
     self.erosion2 = qt.QRadioButton("Erosion")
     self.closingfinal = qt.QRadioButton("Fermeture")
     self.remp2 = qt.QRadioButton("Remplisage des trous")
     self.closingfinal.checked = True
+    self.elemstruc2.setMaximumWidth(44)
+    stepsFormLayout.addRow(self.inputDistLabel, self.elemstruc2)
     stepsFormLayout.addRow(self.opening2, self.closingfinal)
     stepsFormLayout.addRow(self.dilate2, self.erosion2)
     stepsFormLayout.addRow(self.remp2)
@@ -649,7 +675,7 @@ class SegmentationFoieWidget(ScriptedLoadableModuleWidget):
 
 					# Chargement avec dossier DICOM
 					# Bouton de chargement par DICOM mis sur True
-    self.loadFromDicomRef = qt.QRadioButton(u"Charger le foie r\u00e9f\u00e9rent : V\u00e9rit\u00e9 Terrain")
+    self.loadFromDicomRef = qt.QRadioButton(u"Charger le foie r\u00e9f\u00e9rent (V\u00e9rit\u00e9 Terrain) :")
     self.loadFromDicomRef.checked = True
           # Zone de recherche du repertoire contenant les images a traiter
     self.inputDicomSelectorRef = ctk.ctkDirectoryButton()
@@ -721,7 +747,7 @@ class SegmentationFoieWidget(ScriptedLoadableModuleWidget):
     self.view10.sortingEnabled = True
     self.parent.layout().addWidget(self.view10)
        
-						# Save button
+					# Save button
     self.exportToTableButton10 = qt.QPushButton("Exporter en tableau")
     self.exportToTableButton10.toolTip = "Exporter les statistiques en tableau."
     self.exportToTableButton10.enabled = False
@@ -731,7 +757,7 @@ class SegmentationFoieWidget(ScriptedLoadableModuleWidget):
     self.inputDistLabel = qt.QLabel("")
     self.parent.layout().addWidget(self.inputDistLabel)
     
-        			# Setup Button
+        	# Setup Button
     self.setupButtonValid = qt.QPushButton(u"Configurer la volum\u00e9trie")
     self.setupButtonValid.toolTip = u"Configurer l\u00b4algorithme."
     self.setupButtonValid.enabled = False
@@ -837,6 +863,7 @@ class SegmentationFoieWidget(ScriptedLoadableModuleWidget):
   def cleanup(self):
     pass
 
+
   def onSelect(self):
     if self.loadFromDicom.checked:
       self.masterVolumeNode = self.dicomVolumeNode 
@@ -930,6 +957,7 @@ class SegmentationFoieWidget(ScriptedLoadableModuleWidget):
     threeDView = threeDWidget.threeDView()
     threeDView.resetFocalPoint()
     
+					
 					# Chargement des fichiers DICOM
   def loadDicoms(self, dcmpath):
     volArray = []
@@ -973,6 +1001,7 @@ class SegmentationFoieWidget(ScriptedLoadableModuleWidget):
     volNode.SetName(str(sn))
     volNode.SetName("IRCAD Volume")
     return volNode
+
 
 					# Recherche des fichiers DICOM
   def findDicoms(self, dcmpath):
@@ -1029,11 +1058,14 @@ class SegmentationFoieWidget(ScriptedLoadableModuleWidget):
 					# Update GUI
     self.updateGUIFromParameterNode()
 
+
   def getParameterNode(self):
     return self.parameterNode
 
+
   def onParameterNodeModified(self, observer, eventid):
     self.updateGUIFromParameterNode()
+
 
   def updateGUIFromParameterNode(self):
     parameterNode = self.getParameterNode()
@@ -1053,6 +1085,7 @@ class SegmentationFoieWidget(ScriptedLoadableModuleWidget):
       self.nodeSelectorWidgets[parameterName].setCurrentNodeID(parameterNode.GetNodeReferenceID(parameterName))
       self.nodeSelectorWidgets[parameterName].blockSignals(oldBlockSignalsState)
 
+
   def updateParameterNodeFromGUI(self):
     parameterNode = self.getParameterNode()
     oldModifiedState = parameterNode.StartModify()
@@ -1071,6 +1104,7 @@ class SegmentationFoieWidget(ScriptedLoadableModuleWidget):
       parameterNode.SetNodeReferenceID(parameterName, self.nodeSelectorWidgets[parameterName].currentNodeID)
     parameterNode.EndModify(oldModifiedState)
 
+
   def addGUIObservers(self):
     for parameterName in self.valueEditWidgets:
       widgetClassName = self.valueEditWidgets[parameterName].metaObject().className()      
@@ -1083,11 +1117,13 @@ class SegmentationFoieWidget(ScriptedLoadableModuleWidget):
     for parameterName in self.nodeSelectorWidgets:
       self.nodeSelectorWidgets[parameterName].connect("currentNodeIDChanged(QString)", self.updateParameterNodeFromGUI)
 
+
   def updateApplyButtonState(self):
     if self.clippingRoiSelector.currentNode() and self.outputVolumeSelector.currentNode():
       self.applyButton.enabled = True
     else:
       self.applyButton.enabled = False      
+    
     
   def onClippingRoiSelect(self, node):
     taille = slicer.util.arrayFromVolume(self.masterVolumeNode)
@@ -1098,9 +1134,11 @@ class SegmentationFoieWidget(ScriptedLoadableModuleWidget):
       self.clippingRoiSelector.currentNode().SetRadiusXYZ(10.,10.,10.)
     self.updateApplyButtonState()
 
+
   def onOutputVolumeSelect(self, node):
     self.updateApplyButtonState()
-    
+
+
   def onApply(self):
     self.applyButton.text = "Working..."
     self.applyButton.repaint()
@@ -1125,7 +1163,7 @@ class SegmentationFoieWidget(ScriptedLoadableModuleWidget):
       compositeNode.SetForegroundOpacity(0.7)
     
     annotationROI = slicer.mrmlScene.GetFirstNodeByName('AnnotationROI')
-    annotationROI.SetDisplayVisibility(0)
+    annotationROI.SetDisplayVisibility(False)
     self.applyButton.text = u"Ex\u00e9cuter le rognage"
     self.cleanup()
 
@@ -1165,27 +1203,31 @@ class SegmentationFoieWidget(ScriptedLoadableModuleWidget):
         return  
     self.logic.pic(self.masterVolumeNode)
 
+
   def onApplyButtonHisto(self):
     self.applyButton4.text = "Working..."
     self.applyButton4.repaint()
     #slicer.app.processEvents()
     imageThreshold = self.imageThresholdSliderWidget.value
     imageThreshold2 = self.imageThresholdSliderWidget2.value
-    self.logic.histo(self.masterVolumeNode, imageThreshold, imageThreshold2)
+    result = self.logic.histo(self.masterVolumeNode, imageThreshold, imageThreshold2)
+    a = result.GetDisplayNode()
+    a.SetColor(1,0,0)
     self.applyButton4.text = u"Ex\u00e9cuter l\u00b4histogramme et le seuillage"
     self.cleanup()
 
 
 #######################
-# Fonction pour step 5 : Operations morphologiques
+# Fonction pour step 5 : Operations de morphologie mathematique
 #######################  
   def onApplyButtonOpMorpho(self):
     self.applyButton5.text = "Working..."
     self.applyButton5.repaint()
     slicer.app.processEvents()
+    taille = self.elemstruc.itemData(self.elemstruc.currentIndex)
     inputVolume = self.inputSelector.currentNode()
-    self.logic.morpho(self.masterVolumeNode, self.opening, self.dilate, self.erosion, self.closing, self.remp, inputVolume)
-    self.applyButton5.text = u"Ex\u00e9cuter la morphologie"
+    self.logic.morpho(self.masterVolumeNode, self.opening, taille, self.dilate, self.erosion, self.closing, self.remp, inputVolume)
+    self.applyButton5.text = u"Ex\u00e9cuter l\u00b4op\u00e9ration de morphologie math\u00e9matique"
     self.cleanup()
 
     
@@ -1219,12 +1261,14 @@ class SegmentationFoieWidget(ScriptedLoadableModuleWidget):
     slicer.modules.markups.logic().StartPlaceMode(0)
     self.addLogextract("")
 						
+						
 						# Selection des points
   def onSeedSelect(self, caller, event):
     if self.bgNode:
       self.applyButton6.enabled = self.bgNode.GetNumberOfMarkups()
     else:
 	    self.applyButton6.enabled = False
+	    
 	    
 						# Affichage du resultat du calcul
   def onApplyButtonExtract(self):
@@ -1234,7 +1278,8 @@ class SegmentationFoieWidget(ScriptedLoadableModuleWidget):
     posIJK = self.addSeedCoords(self.bgNode, self.masterVolumeNode)
     inputVolume = self.inputSelector.currentNode()
     inputVolume2 = self.inputSelectorextrac.currentNode()
-    outmorpho = self.logic.morpho(self.masterVolumeNode, self.opening, self.dilate, self.erosion, self.closing, self.remp, inputVolume)
+    taille = self.elemstruc.itemData(self.elemstruc.currentIndex)
+    outmorpho = self.logic.morpho(self.masterVolumeNode, self.opening, taille, self.dilate, self.erosion, self.closing, self.remp, inputVolume)
     self.logic.extractedcomponents(self.masterVolumeNode, self.seedCoords, posIJK, outmorpho, inputVolume2)
     self.applyButton6.text = u"Ex\u00e9cuter l\u00b4extraction"
     annotationFoie = slicer.mrmlScene.GetFirstNodeByName('Foie')
@@ -1270,14 +1315,15 @@ class SegmentationFoieWidget(ScriptedLoadableModuleWidget):
 
 
 ########################
-# Fonctions pour step 7 : Operations morphologiques finales
+# Fonctions pour step 7 : Operations de morphologie mathematique finales
 ########################  
   def onApplyButtonClosing(self):
     self.applyButton7.text = "Working..."
     self.applyButton7.repaint()
     slicer.app.processEvents()
     inputVolumeclose = self.inputSelector2.currentNode()
-    self.logic.closing(self.masterVolumeNode, self.opening2, self.dilate2, self.erosion2, self.closingfinal, self.remp2, inputVolumeclose)
+    taille2 = self.elemstruc2.itemData(self.elemstruc2.currentIndex)
+    self.logic.closing(self.masterVolumeNode, self.opening2, taille2, self.dilate2, self.erosion2, self.closingfinal, self.remp2, inputVolumeclose)
     self.applyButton7.text = u"Ex\u00e9cuter la segmentation finale"
     
     lm = slicer.app.layoutManager()
@@ -1306,7 +1352,8 @@ class SegmentationFoieWidget(ScriptedLoadableModuleWidget):
     self.applyCorrFin.repaint()
     slicer.app.processEvents()
     inputVolumeclose = self.inputSelector2.currentNode()
-    inputVolCor = self.logic.closing (self.masterVolumeNode, self.opening2, self.dilate2, self.erosion2, self.closingfinal, self.remp2, inputVolumeclose)
+    taille2 = self.elemstruc2.itemData(self.elemstruc2.currentIndex)
+    inputVolCor = self.logic.closing (self.masterVolumeNode, self.opening2, taille2, self.dilate2, self.erosion2, self.closingfinal, self.remp2, inputVolumeclose)
     self.logic.CorrectionFinale(self.masterVolumeNode, inputVolCor)
     self.applyCorrFin.text = "Correction de la segmentation du foie"
     
@@ -1328,6 +1375,7 @@ class SegmentationFoieWidget(ScriptedLoadableModuleWidget):
         logging.info(u"Op\u00e9ration annul\u00e9e par l\u00b4utilisateur, fin en cours...")
         return  
     self.cleanup()
+
 
   def onApplyCorrfinie(self) :
     self.applyCorrfinie.text = "Working..."
@@ -1359,6 +1407,7 @@ class SegmentationFoieWidget(ScriptedLoadableModuleWidget):
     self.logic.autodistance(self.masterVolumeNode, outfin)
     self.applyButton81.text = "Calculer les distances automatiques"
     self.cleanup()
+    
     
 # MANUELLES
 ###########
@@ -1400,12 +1449,14 @@ class SegmentationFoieWidget(ScriptedLoadableModuleWidget):
 
     self.tmpNodesdist = [self.Distance1Node, self.Distance2Node, self.Distance3Node]
 
+
   def onSeedSelectdist(self, caller, event):
     if self.Distance1Node and self.Distance3Node and self.Distance2Node :
       self.applyButton82.enabled = self.Distance3Node.GetNumberOfMarkups() and self.Distance2Node.GetNumberOfMarkups() and self.Distance1Node.GetNumberOfMarkups() 
       slicer.modules.markups.logic().StartPlaceMode(1)
     else:
 	    self.applyButton82.enabled = False
+
 
   def onApplyButton82(self):  
     self.applyButton82.text = "Working..."
@@ -1417,6 +1468,7 @@ class SegmentationFoieWidget(ScriptedLoadableModuleWidget):
     self.applyButton82.text = "Calculer les distances manuelles"
     slicer.modules.markups.logic().StartPlaceMode(0)
     self.cleanup()
+   
    
   def addSeedCoordsdist1(self, fidNode, masterVolumeNode):
     seed = fidNode.GetName()
@@ -1479,6 +1531,7 @@ class SegmentationFoieWidget(ScriptedLoadableModuleWidget):
     #self.addLogdistclic("")
     slicer.modules.markups.logic().StartPlaceMode(0)
 
+
   def addSeedCoordsdist3(self, fidNode, masterVolumeNode):
     seed = fidNode.GetName()
     if seed not in self.seedCoordsdist:
@@ -1513,7 +1566,6 @@ class SegmentationFoieWidget(ScriptedLoadableModuleWidget):
 # Fonctions pour step 9 : Calcul du volume du foie
 #######################
   def onLabelSelect(self):
-
     volumesLogic = slicer.modules.volumes.logic()
     lm = slicer.app.layoutManager()
     lm.setLayout(slicer.vtkMRMLLayoutNode.SlicerLayoutFourUpView)
@@ -1579,6 +1631,7 @@ class SegmentationFoieWidget(ScriptedLoadableModuleWidget):
     slicer.app.applicationLogic().GetSelectionNode().SetReferenceActiveTableID(table.GetID())
     slicer.app.applicationLogic().PropagateTableSelection()
 
+
 						# Fonction de sauvegarde des resultats
   def onSave(self):
     """save the label statistics
@@ -1592,8 +1645,10 @@ class SegmentationFoieWidget(ScriptedLoadableModuleWidget):
       self.fileDialog.connect("fileSelected(QString)", self.onFileSelected)
       self.fileDialog.show()
 
+
   def onFileSelected(self,fileName):
     self.logicvol.saveStats(fileName)
+
 
   def populateStats(self):
     if not self.logicvol:
@@ -1644,7 +1699,6 @@ class SegmentationFoieWidget(ScriptedLoadableModuleWidget):
       self.model.setHeaderData(col,1,k)
       col += 1
 
- 
 
 ########################
 # Fonctions pour step 10 : Validation des resultats par rapport a la reference IRCAD
@@ -1665,6 +1719,7 @@ class SegmentationFoieWidget(ScriptedLoadableModuleWidget):
     threeDView.resetFocalPoint()
     labelstep91 = slicer.util.getNode("Label_volume_foie_step9_1")
     slicer.mrmlScene.RemoveNode(labelstep91)
+
 
   def loadDicomsRef(self, dcmpath):
     volArray = []
@@ -1752,6 +1807,7 @@ class SegmentationFoieWidget(ScriptedLoadableModuleWidget):
     #labelstep10 = slicer.util.getNode("Label_volume_foie_step10")
     #slicer.mrmlScene.RemoveNode(labelstep10)
     
+    
     				# Fonction d'exportation
   def onExportToTable10(self):
     """write the label statistics to a table node
@@ -1763,6 +1819,7 @@ class SegmentationFoieWidget(ScriptedLoadableModuleWidget):
     slicer.app.layoutManager().setLayout(slicer.vtkMRMLLayoutNode.SlicerLayoutFourUpTableView)
     slicer.app.applicationLogic().GetSelectionNode().SetReferenceActiveTableID(table10.GetID())
     slicer.app.applicationLogic().PropagateTableSelection()
+
 
 						# Fonction de sauvegarde des resultats
   def onSave10(self):
@@ -1777,8 +1834,10 @@ class SegmentationFoieWidget(ScriptedLoadableModuleWidget):
       self.fileDialog.connect("fileSelected(QString)", self.onFileSelected10)
       self.fileDialog.show()
 
+
   def onFileSelected10(self,fileName):
     self.logicvolref.saveStats(fileName)
+
 
   def populateStats10(self):
     if not self.logicvolref:
@@ -1901,7 +1960,6 @@ class SegmentationFoieWidget(ScriptedLoadableModuleWidget):
 			RVD = 100 * (abs(volumesegmente - volumereference) / abs(volumereference))
 			self.addLogValid(u"Diff\u00e9rence Relative de Volume RVD : {0} %".format(RVD))
 
-
     if self.loadFromSlicer.checked:
 			volumesegmente = (float(self.logicvol.labelStats[1,self.logicvol.keys[3]]))
 			volumereference = (float(self.logicvolref.volumestats[1,self.logicvolref.keys10[3]]))
@@ -1941,7 +1999,6 @@ class SegmentationFoieWidget(ScriptedLoadableModuleWidget):
 			  compositeNode.SetForegroundVolumeID(outfin.GetID())
 						# Changer l'opacite
 			  compositeNode.SetForegroundOpacity(0.7)
-      
       
 			volvol = slicer.util.arrayFromVolume(volref)
 			A = np.array(volvol)
@@ -2022,6 +2079,7 @@ class SegmentationFoieLogic(ScriptedLoadableModuleLogic):
      self.logCallbackdistauto = None
      self.logCallbackdistclic = None
     
+    
 						# Cadre de resultats
   def addLog(self, text):
     logging.info(text)
@@ -2052,6 +2110,7 @@ class SegmentationFoieLogic(ScriptedLoadableModuleLogic):
     logging.info(text)
     if self.logCallbackValid:
       self.logCallbackValid(text) 
+         
           
   def hasImageData(self,volumeNode):
     """This is an example logic method that
@@ -2065,6 +2124,7 @@ class SegmentationFoieLogic(ScriptedLoadableModuleLogic):
       logging.debug('hasImageData failed: no image data in volume node')
       return False
     return True
+
 
   def isValidInputOutputData(self, inputVolumeNode, outputVolumeNode):
     """Validates if the output is not the same as input
@@ -2090,6 +2150,7 @@ class SegmentationFoieLogic(ScriptedLoadableModuleLogic):
     node.SetName(slicer.mrmlScene.GetUniqueNameByString(self.moduleName))
     node.SetParameter("RognerHorsSurface", "1")
     return node
+  
   
   def clipVolumeWithRoi(self, roiNode, masterVolumeNode, clipOutsideSurface, outputVolume):
     start = time.time()  
@@ -2287,18 +2348,19 @@ class SegmentationFoieLogic(ScriptedLoadableModuleLogic):
     imgBinary[b < thresholdValue1] = 0 
     imgBinary2 = np.array(imgBinary)
     thresholdValue2 = borne2
-    imgBinary2[imgBinary > thresholdValue2] = 0         
+    imgBinary2[imgBinary > thresholdValue2] = 0     
     vtype = vtk.util.numpy_support.get_vtk_array_type(imgBinary2.dtype)
     vimage.SetDimensions(vshape)
     vimage.AllocateScalars(vtype, vcomponents)
     narrayTarget = slicer.util.arrayFromVolume(outhisto)
     narrayTarget[:] = imgBinary2
-    
+
 						# Volume modifie
     outhisto.StorableModified()
     outhisto.Modified()
     outhisto.InvokeEvent(slicer.vtkMRMLVolumeNode.ImageDataModifiedEvent, outputVolumehisto)
-        
+    outhisto.GetDisplayNode().SetAndObserveColorNodeID('vtkMRMLColorTableNodeInvertedGrey')
+    
 						# Affichage 
     #slicer.util.setSliceViewerLayers(outhisto)
     
@@ -2315,30 +2377,31 @@ class SegmentationFoieLogic(ScriptedLoadableModuleLogic):
       compositeNode.SetForegroundVolumeID(outhisto.GetID())
 						 # Changer l'opacite
       compositeNode.SetForegroundOpacity(0.9)
-    
+
     #logging.info('Histogramme + Seuillage completed')
     return outhisto
 
 
 ####################
-# Fonction step 5 : OPERATIONS MORPHOLOGIQUES
+# Fonction step 5 : OPERATIONS DE MORPHOLOGIE MATHEMATIQUE
 ####################
-  def morpho (self, masterVolumeNode, opening, dilate, erosion, closing, remp, inputVolume):#, outputVolume):
+  def morpho (self, masterVolumeNode, opening, taille, dilate, erosion, closing, remp, inputVolume):#, outputVolume):
     start = time.time()  
-   # logging.info('Operations morphologiques started')
+   # logging.info('Operations de morphologie mathematique started')
     lm = slicer.app.layoutManager()
     lm.setLayout(slicer.vtkMRMLLayoutNode.SlicerLayoutFourUpView)
 
     c = slicer.util.arrayFromVolume(inputVolume)
     volumeLogic = slicer.modules.volumes.logic()
-    outmorpho = volumeLogic.CloneVolume(slicer.mrmlScene, inputVolume, 'Volume apres Morphologie')
+    outmorpho = volumeLogic.CloneVolume(slicer.mrmlScene, inputVolume, 'Volume apres Morphologie Mathematique')
     vshape = tuple(reversed(c.shape))
     vcomponents = 1
     vimage = outmorpho.GetImageData()
     
 						# Element structurant pour remplacer skimorpho.ball(2), 26 connectivites
-    struc = np.ones((3,3,3)) 
-
+    #struc = np.ones((3,3,3)) 
+    struc = np.ones((taille,taille,taille)) 
+    
     if (opening.checked):
 			ouverture = np.array(c)
 			ouv = ndimage.binary_opening(c, struc, iterations = 2)
@@ -2398,6 +2461,7 @@ class SegmentationFoieLogic(ScriptedLoadableModuleLogic):
     outmorpho.StorableModified()
     outmorpho.Modified()
     outmorpho.InvokeEvent(slicer.vtkMRMLVolumeNode.ImageDataModifiedEvent, inputVolume)
+    outmorpho.GetDisplayNode().SetAndObserveColorNodeID('vtkMRMLColorTableNodeGrey')
 
 						# Affichage   
             # Choix du background et du foreground des coupes visualisees
@@ -2414,7 +2478,7 @@ class SegmentationFoieLogic(ScriptedLoadableModuleLogic):
 						 # Changer l'opacite
       compositeNode.SetForegroundOpacity(0.7)
      
-    #logging.info('Operations morphologiques completed')
+    #logging.info('Operations de morphologie mathematique completed')
     return outmorpho
 
 
@@ -2485,9 +2549,9 @@ class SegmentationFoieLogic(ScriptedLoadableModuleLogic):
 
 
 ####################
-# Fonction step 7 : OPERATIONS MORPHOLOGIQUES FINALES
+# Fonction step 7 : OPERATIONS DE MORPHOLOGIE MATHEMATIQUE FINALES
 ####################
-  def closing (self, masterVolumeNode, opening2, dilate2, erosion2, closingfinal, remp2, inputVolumeclose):
+  def closing (self, masterVolumeNode, opening2, taille2, dilate2, erosion2, closingfinal, remp2, inputVolumeclose):
     start = time.time()  
     #logging.info('Operation binaire finale started')
     lm = slicer.app.layoutManager()
@@ -2499,7 +2563,8 @@ class SegmentationFoieLogic(ScriptedLoadableModuleLogic):
     vcomponents = 1
     vimage = outfin.GetImageData()
 
-    struc = np.ones((3,3,3))
+    #struc = np.ones((3,3,3))
+    struc = np.ones((taille2,taille2,taille2))
     
     if (opening2.checked):
 			ouverture = np.array(e)
@@ -2853,7 +2918,6 @@ class LabelStatLogic(ScriptedLoadableModuleLogic):
     fp.close()
 
 
-
 ###################
 # Fonction step 10 : CALCULER LE VOLUME DU FOIE REFERENCE
 ###################
@@ -3011,11 +3075,13 @@ class SegmentationFoieTest(ScriptedLoadableModuleTest):
     """
     slicer.mrmlScene.Clear(0)
 
+
   def runTest(self):
     """Run as few or as many tests as needed here.
     """
     self.setUp()
     self.test_SegmentationFoie1()
+
 
   def test_SegmentationFoie1(self):
     self.delayDisplay("Commencer le test")
