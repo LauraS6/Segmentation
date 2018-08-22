@@ -48,9 +48,9 @@ Cliquer sur "Ok" si toutes les informations sont comprises
 
         o Soit choisir parmi les volumes d'images déjà chargés dans 3D Slicer et qui s’affichent dans le premier tableau avec un classement par "PatientsName" :
 	
-	      • Cliquer sur le volume désiré (par exemple : cd 11) puis sur la modalité d'imagerie à analyser, affichée dans le troisième tableau (par exemple : AP Artériel 3.0 l30f)
+          • Cliquer sur le volume désiré (par exemple : cd 11) puis sur la modalité d'imagerie à analyser, affichée dans le troisième tableau (par exemple : AP Artériel 3.0 l30f)
 		
-	      • Cliquer sur "Load" en bas à gauche de la fenêtre
+          • Cliquer sur "Load" en bas à gauche de la fenêtre
 		
 	      •	Fermer la petite fenêtre "DICOM" en cliquant sur la croix en haut à droite de la fenêtre
 
