@@ -1,5 +1,7 @@
 # Segmentation « Segmentation du foie et de la cavité abdominale pour l'appariement donneur / receveur en transplantation hépatique »
 
+Laura Seimpere : laura.seimpere@etu.unistra.fr
+
 # NOTICE D’UTILISATION DES MODULES PERSONNALISÉS CRÉÉS SOUS 3D SLICER
  
 # UTILISATION DE 3D SLICER POUR LA
@@ -7,21 +9,21 @@
 ## A)	 SEGMENTATION DU FOIE
 
 
-1. OUVRIR le logiciel "3D Slicer"
+**1. OUVRIR** le logiciel "3D Slicer"
 
 
-2. Dans le menu déroulant "Welcome to Slicer", CHOISIR LE MODULE CRÉÉ appelé "Pour le DONNEUR : Segmentation semi-automatique du foie" puis cliquer sur "Étapes de la segmentation du foie"
+**2.** Dans le menu déroulant "Welcome to Slicer", **CHOISIR LE MODULE CRÉÉ** appelé "Pour le DONNEUR : Segmentation semi-automatique du foie" puis cliquer sur "Étapes de la segmentation du foie"
 
 
-3. CHOISIR LA MÉTHODE D'IMPORTATION DES IMAGES
+**3. CHOISIR LA MÉTHODE D'IMPORTATION DES IMAGES**
 
-	3.1. A partir d'un dossier de l'ordinateur contenant des fichiers DICOM : 
+	**3.1. A partir d'un dossier de l'ordinateur contenant des fichiers DICOM : **
 	
 •	Cliquer sur la barre de recherche de répertoire à côté de l’option "Charger depuis DICOM" puis cliquer sur "Importer et charger"
 	
-	3.2. A partir d'images préalablement (ou non) chargées sous 3D Slicer :
+	**3.2. A partir d'images préalablement (ou non) chargées sous 3D Slicer :**
 	
-	•	Si les images ont été préalablement chargées sous 3D Slicer
+	**•	Si les images ont été préalablement chargées sous 3D Slicer**
 	
 •	Cliquer sur "Charger depuis SLICER" pour sélectionner cette option
 
@@ -31,7 +33,7 @@
 
 •	Cliquer sur "Importer et charger" au bout de la ligne de l'option sélectionnée "Charger depuis SLICER"
 
-	•	Si les images n’ont pas été préalablement chargées sous 3D Slicer
+	**•	Si les images n’ont pas été préalablement chargées sous 3D Slicer**
 	
 •	Cliquer sur "Charger depuis SLICER" pour sélectionner cette option
 
@@ -55,7 +57,7 @@ Cliquer sur "Ok" si toutes les informations sont comprises
 		•	De retour sur notre module, charger les images dans le module courant en cliquant sur "Importer et charger" au bout de la ligne de l'option sélectionnée "Charger depuis SLICER"
 
 
-4. ÉTAPE OPTIONNELLE : CALCUL DE SIGMA SUR UNE ZONE HOMOGÈNE
+**4. ÉTAPE OPTIONNELLE : CALCUL DE SIGMA SUR UNE ZONE HOMOGÈNE**
 
 •	Sélectionner "Create new annotationROI" dans le premier menu déroulant "Région d’intérêt à rogner"
 
@@ -72,7 +74,7 @@ Cliquer sur "Ok" si toutes les informations sont comprises
 •	Pour continuer la segmentation du foie, il est préconisé de retourner à l’étape précédente, de recharger les images à analyser puis de passer à l’étape suivante de Filtrage
 
 
-5. FILTRAGE
+**5. FILTRAGE**
 
 •	Choisir parmi les filtres "Filtre médian" ou "Filtre gaussien" (filtre sélectionné par défaut) en cliquant dessus pour le sélectionner
 
@@ -83,7 +85,7 @@ Cliquer sur "Ok" si toutes les informations sont comprises
 •	Si le rendu visuel ne semble pas assez homogène, ne pas hésiter à changer les paramètres des filtres et cliquer de nouveau sur "Exécuter le filtrage"
 
 
-6. HISTOGRAMME ET SEUILLAGE
+**6. HISTOGRAMME ET SEUILLAGE**
 
 •	Cliquer sur "Configurer l’histogramme" : la pop-up "Pic du foie" décrit à l'utilisateur ce qu'il doit faire :
  Cliquer sur "Ok" si toutes les informations sont comprises
@@ -94,7 +96,7 @@ Cliquer sur "Ok" si toutes les informations sont comprises
 
 •	Cliquer sur "Exécuter l’histogramme et le seuillage" et visualiser le résultat dans les trois plans anatomiques et en parcourant les différentes coupes
 
-N.B. : Si l’utilisateur veut visualiser l’histogramme :
+**N.B. :** Si l’utilisateur veut visualiser l’histogramme :
 
     o	Glisser sur l’épingle en haut à gauche de la fenêtre de visualisation 3D
     
@@ -113,9 +115,9 @@ N.B. : Si l’utilisateur veut visualiser l’histogramme :
 •	Si le résultat escompté n'est pas obtenu (id est, si le foie est sur ou sous-sélectionné), changer autant de fois que nécessaire les bornes grâce aux curseurs et cliquer, à chaque changement, sur "Exécuter l’histogramme et le seuillage"
 
 
-7. OPÉRATIONS DE MORPHOLOGIE MATHÉMATIQUE
+**7. OPÉRATIONS DE MORPHOLOGIE MATHÉMATIQUE**
 
-•	Choisir le volume d'entrée parmi la liste de ceux préalablement créés; le dernier volume obtenu à l'étape précédente correspond au dernier volume apparaissant dans le menu déroulant : "Volume apres Seuillage_i" pour i étant un nombre variant en fonction du nombre d'essais effectués à l'étape précédente. Choisir le dernier volume du menu déroulant puisque l’on désire travailler sur le dernier volume prétraité
+•	Choisir le volume d'entrée parmi la liste de ceux préalablement créés; le dernier volume obtenu à l'étape précédente correspond au dernier volume apparaissant dans le menu déroulant : **"Volume apres Seuillage_i"** pour i étant un nombre variant en fonction du nombre d'essais effectués à l'étape précédente. Choisir le dernier volume du menu déroulant puisque l’on désire travailler sur le dernier volume prétraité
 
 •	Choisir la "Taille de l’élément structurant" à appliquer à l’opération suivante (plus l’élément structurant est grand, plus l’opération s’applique sur une zone étendue)
 
@@ -124,10 +126,10 @@ N.B. : Si l’utilisateur veut visualiser l’histogramme :
 •	Cliquer sur "Exécuter l’opération de morphologie mathématique"
 
 •	Si le résultat obtenu ne correspond pas à l'effet recherché, jouer avec les autres options mises à disposition, sachant qu'il faut principalement s'assurer de déconnecter et espacer correctement les structures pour pouvoir ne sélectionner que le foie à l'étape suivante.
-L’explication des opérations de morphologie mathématique applicables est fournie en Annexe 1
+L’explication des opérations de morphologie mathématique applicables est fournie en **Annexe 1**
 
 
-8. EXTRACTION DES COMPOSANTES CONNEXES
+**8. EXTRACTION DES COMPOSANTES CONNEXES**
 
 •	Choisir, comme précédemment, le volume d'entrée dont le dernier créé – issu de l'étape précédente – est "Volume apres Morphologie Mathematique_i"
 
@@ -140,7 +142,7 @@ L’explication des opérations de morphologie mathématique applicables est fou
 •	La box "Résultats" affiche le nombre de labels définis dans l'image et le numéro du label du foie
 
 
-9. OPÉRATIONS DE MORPHOLOGIE MATHÉMATIQUE POUR AFFINER LA SEGMENTATION
+**9. OPÉRATIONS DE MORPHOLOGIE MATHÉMATIQUE POUR AFFINER LA SEGMENTATION**
 
 •	Choisir le volume d'entrée comme précédemment : "Volume apres Extraction_i" étant le dernier
 
@@ -164,7 +166,7 @@ L’explication des opérations de morphologie mathématique applicables est fou
 
 		•	"Remplissage des trous" pour combler des trous dans la segmentation
 
-    o	Attention à bien choisir, en entrée, le dernier volume traité, puis cliquer sur "Exécuter la segmentation finale" à chaque sélection d'option pour afficher le résultat et l'affiner
+    o	**Attention** à bien choisir, en entrée, le dernier volume traité, puis cliquer sur "Exécuter la segmentation finale" à chaque sélection d'option pour afficher le résultat et l'affiner
 
 •	Si le résultat affiché est convenable mais contient encore des erreurs (foie sur ou sous-segmenté), il faut l’affiner plus précisément et donc manuellement. Pour cela, une pop-up "Segmentation du foie" s’affiche pour préconiser à l’utilisateur d’affiner sa segmentation.
 Cliquer sur "Ok" si toutes les informations sont comprises
@@ -174,7 +176,7 @@ Cliquer sur "Ok" si toutes les informations sont comprises
 
 •	Une pop-up "Segment Editor" s’est affichée simultanément en arrière-plan; cette fenêtre permet à l’utilisateur de corriger manuellement la segmentation grâce à, principalement, deux fonctions : "Paint" et "Erase"
 
-ASTUCE : Laisser la fenêtre "Segment Editor" à gauche de l’écran et adapter la fenêtre de 3D Slicer à droite pour pouvoir alterner facilement entre "Paint" et "Erase" sans multiplier les manipulations d’écran. Fermer également le module de 3D Slicer par la petite croix en haut à droite du module pour ne voir à l’écran que les coupes dans les différents plans 
+**ASTUCE :** Laisser la fenêtre "Segment Editor" à gauche de l’écran et adapter la fenêtre de 3D Slicer à droite pour pouvoir alterner facilement entre "Paint" et "Erase" sans multiplier les manipulations d’écran. Fermer également le module de 3D Slicer par la petite croix en haut à droite du module pour ne voir à l’écran que les coupes dans les différents plans 
 (Pour revenir au visuel du module : "View"  "Module Panel")
 
 •	Dans "Segment Editor" :
@@ -184,9 +186,9 @@ ASTUCE : Laisser la fenêtre "Segment Editor" à gauche de l’écran et adapter
     
 Il est possible de changer le diamètre de la sphère permettant ces ajouts et suppressions en cliquant sur les chiffres ou en tapant un chiffre dans le module :
 
-ASTUCE : S’il y a beaucoup de modifications à effectuer (beaucoup de structures et d’organes n’appartenant pas au foie apparaissent dans la vue 3D), il est conseillé de positionner correctement la visualisation dans la vue 3D pour faire apparaître le surplus à effacer puis cocher "Edit in 3D views" (en-dessous de la modification du diamètre de la sphère sur l’image précédente); enfin, cliquer en glissant sur la vue 3D : cela crée des boules vert kaki qui deviennent blanches quand les segments désirés sont effacés. 
+**ASTUCE :** S’il y a beaucoup de modifications à effectuer (beaucoup de structures et d’organes n’appartenant pas au foie apparaissent dans la vue 3D), il est conseillé de positionner correctement la visualisation dans la vue 3D pour faire apparaître le surplus à effacer puis cocher "Edit in 3D views" (en-dessous de la modification du diamètre de la sphère sur l’image précédente); enfin, cliquer en glissant sur la vue 3D : cela crée des boules vert kaki qui deviennent blanches quand les segments désirés sont effacés. 
 
-Attention à décocher "Edit in 3D views" pour modifier le positionnement de l’image dans la visualisation 3D
+**Attention** à décocher "Edit in 3D views" pour modifier le positionnement de l’image dans la visualisation 3D
 
     o	Une fois ces modifications effectuées avec succès, fermer la fenêtre "Segment Editor" en cliquant sur la croix en haut à droite de la fenêtre
 
@@ -195,15 +197,15 @@ Attention à décocher "Edit in 3D views" pour modifier le positionnement de l�
 •	L’ensemble de la scène est également sauvegardé dans le dossier nommé "FoieSegmenteDonneurData" dans le même répertoire
 
 
-10. CALCUL DE LA DISTANCE ENTRE DEUX POINTS SUR LE FOIE
+**10. CALCUL DE LA DISTANCE ENTRE DEUX POINTS SUR LE FOIE**
 
-	10. 1. Distances automatiques
+	**10. 1. Distances automatiques**
 	
 •	Cliquer sur "Calculer les distances automatiques" et attendre
 
 •	Les résultats des distances caractéristiques en mm (longueur, largeur, profondeur du foie) s'affichent alors dans la box "Résultats" de l'option
 
-	10. 2. Distances manuelles
+	**10. 2. Distances manuelles**
 	
 •	Cliquer sur "Configurer les distances manuelles" : la pop-up "Distances du foie" explique alors à l'utilisateur ce qui est attendu de lui pour calculer correctement les distances désirées.
 Cliquer sur "Ok" si toutes les informations sont comprises 
@@ -229,7 +231,7 @@ Cliquer sur "Ok" si toutes les informations sont comprises
 •	Les résultats des distances en mm s'affichent dans la box "Résultats" de l'option
 
 
-11. CALCUL DU VOLUME DU FOIE
+**11. CALCUL DU VOLUME DU FOIE**
 
 •	Choisir le "Volume en niveaux de gris" à considérer pour calculer le volume : correspond au dernier volume obtenu, id est "FoieSegmentApresCorrection"
 
@@ -248,7 +250,7 @@ Cliquer sur "Ok" si toutes les informations sont comprises
 •	Il est possible d'exporter le tableau pour l'afficher à droite de l'écran en cliquant sur "Exporter en tableau"
 	
 
-12. VALIDATION QUANTITATIVE DES RÉSULTATS DE LA SEGMENTATION
+**12. VALIDATION QUANTITATIVE DES RÉSULTATS DE LA SEGMENTATION**
 
 •	Sur la ligne "Charger le foie référent : Vérité Terrain" : cliquer sur la barre de recherche de répertoire pour trouver l’image de référence à comparer à la segmentation réalisée semi-automatiquement puis cliquer sur "Importer et charger"
 
@@ -293,21 +295,21 @@ Cliquer sur "Ok" si toutes les informations sont comprises
  
 ## B)	SEGMENTATION DE LA CAVITÉ ABDOMINALE
 
-1. OUVRIR le logiciel "3D Slicer"
+**1. OUVRIR** le logiciel "3D Slicer"
 
 
-2. Dans le menu déroulant "Welcome to Slicer", CHOISIR LE MODULE CRÉÉ appelé "Pour le RECEVEUR : Volumétrie et distances dans la cavité abdominale" puis cliquer sur "Analyse de la cavité abdominale"
+**2.** Dans le menu déroulant "Welcome to Slicer", **CHOISIR LE MODULE CRÉÉ** appelé "Pour le RECEVEUR : Volumétrie et distances dans la cavité abdominale" puis cliquer sur "Analyse de la cavité abdominale"
 
 
-3. CHOISIR LA MÉTHODE D'IMPORTATION DES IMAGES
+**3. CHOISIR LA MÉTHODE D'IMPORTATION DES IMAGES**
 
-	3.1. A partir d'un dossier de l'ordinateur contenant des fichiers DICOM : 
+	**3.1. A partir d'un dossier de l'ordinateur contenant des fichiers DICOM : **
 	
 •	Cliquer sur la barre de recherche de répertoire à côté de l’option "Charger depuis DICOM" puis cliquer sur "Importer et charger"
 	
-	3.2. A partir d'images préalablement (ou non) chargées sous 3D Slicer :
+	**3.2. A partir d'images préalablement (ou non) chargées sous 3D Slicer :**
 	
-	•	Si les images ont été préalablement chargées sous 3D Slicer
+	**•	Si les images ont été préalablement chargées sous 3D Slicer**
 		
 		•	Cliquer sur "Charger depuis SLICER" pour sélectionner cette option
 		
@@ -317,7 +319,7 @@ Cliquer sur "Ok" si toutes les informations sont comprises
 
 		•	Cliquer sur "Importer et charger" au bout de la ligne de l'option sélectionnée "Charger depuis SLICER"
 
-	•	Si les images n’ont pas été préalablement chargées sous 3D Slicer
+	**•	Si les images n’ont pas été préalablement chargées sous 3D Slicer**
 
 		•	Cliquer sur "Charger depuis SLICER" pour sélectionner cette option
 
@@ -341,7 +343,7 @@ o	Soit choisir parmi les volumes d'images déjà chargés dans 3D Slicer et qui 
 •	De retour sur notre module, charger les images dans le module courant en cliquant sur "Importer et charger" au bout de la ligne de l'option sélectionnée "Charger depuis SLICER"
 
 
-4. SÉLECTION DU VOLUME À ANALYSER
+**4. SÉLECTION DU VOLUME À ANALYSER**
 
 •	Le volume préalablement chargé s’affiche dans "Volume d’entrée"
 
@@ -377,7 +379,7 @@ Cliquer sur "Ok" si toutes les informations sont comprises
 •	L’ensemble de la scène est également sauvegardé dans le dossier nommé "CaviteAbdoReceveurData" dans le même répertoire
 
 
-5. CALCUL DU VOLUME DE LA CAVITÉ ABDOMINALE SÉLECTIONNÉE
+**5. CALCUL DU VOLUME DE LA CAVITÉ ABDOMINALE SÉLECTIONNÉE**
 
 •	Choisir le "Volume en niveaux de gris" à considérer pour calculer le volume : correspond au dernier volume obtenu, id est "VolumeFoie"
 
@@ -396,7 +398,7 @@ Cliquer sur "Ok" si toutes les informations sont comprises
 •	Il est possible d'exporter le tableau pour l'afficher à droite de l'écran en cliquant sur "Exporter en tableau"
 
 
-6. CALCUL DE LA DISTANCE CORONALE
+**6. CALCUL DE LA DISTANCE CORONALE**
 
 •	Cliquer sur "Configurer" : la pop-up "Calcul de distances" s’affiche pour expliquer la démarche à suivre par l’utilisateur (ici, l’exemple porte sur la coupe coronale mais la démarche est identique pour les coupes axiale et sagittale)
 Cliquer sur "Ok" si toutes les informations sont comprises
@@ -414,12 +416,12 @@ Cliquer sur "Ok" si toutes les informations sont comprises
 •	Pour sélectionner un nouveau point après une suppression, il suffit de cliquer sur le marqueur fiducial (à gauche de la poubelle, dans le module, ou dans la barre d’outils, en haut de l’écran)
 
 
-7. CALCUL DE LA DISTANCE SAGITTALE
+**7. CALCUL DE LA DISTANCE SAGITTALE**
 
 Même étapes que précédemment
 
 
-8. CALCUL DE LA DISTANCE AXIALE
+**8. CALCUL DE LA DISTANCE AXIALE**
 
 Même étapes que précédemment
  
@@ -429,13 +431,13 @@ Même étapes que précédemment
  
 ## C)	SUPERPOSITION DU FOIE SEGMENTÉ DU DONNEUR ET DE LA CAVITÉ ABDOMINALE SEGMENTÉE DU RECEVEUR
 
-1. OUVRIR le logiciel "3D Slicer"
+**1. OUVRIR** le logiciel "3D Slicer"
 
 
-2. Dans le menu déroulant "Welcome to Slicer", CHOISIR LE MODULE CRÉÉ appelé "SUPERPOSITION donneur / receveur" puis cliquer sur "Superposition de la cavité abdominale avec le foie segmenté"
+**2.** Dans le menu déroulant "Welcome to Slicer", **CHOISIR LE MODULE CRÉÉ** appelé "SUPERPOSITION donneur / receveur" puis cliquer sur "Superposition de la cavité abdominale avec le foie segmenté"
 
 
-3. IMPORTER LES IMAGES
+**3. IMPORTER LES IMAGES**
 
 •	Cliquer sur "Charger la CAVITÉ"
 
@@ -462,7 +464,7 @@ Même étapes que précédemment
     	o	Patienter le temps que le volume se charge dans la fenêtre de visualisation
 
 
-4. SUPERPOSER LES IMAGES CHARGÉES
+**4. SUPERPOSER LES IMAGES CHARGÉES**
 
 •	Cliquer sur "Exécuter" : une pop-up "General Registration (Elastix)" apparaît ; cette fenêtre
 va permettre d’effectuer un recalage rigide 3D entre les segmentations du foie et de la
@@ -519,7 +521,7 @@ Une fois la segmentation terminée et satisfaisante, il est possible de SAUVEGAR
 •	Cliquer sur "Save"
 
 
-POUR RÉINITIALISER L'INTERFACE DU MODULE
+**POUR RÉINITIALISER L'INTERFACE DU MODULE**
 
 •	Cliquer sur "Reload and Test" en haut de la fenêtre du module
 
@@ -527,7 +529,7 @@ POUR RÉINITIALISER L'INTERFACE DU MODULE
  
 ## ANNEXE : DESCRIPTION DES DIFFÉRENTES OPÉRATIONS DE MORPHOLOGIE MATHÉMATIQUE
 
-•	Ouverture : 
+**•	Ouverture : **
 
 o	Déconnecte des composantes connexes d'intensités différentes
 
@@ -539,7 +541,7 @@ o	Peut diviser les objets
 
 o	Ne préserve pas la connexité
 
-•	Fermeture : 
+**•	Fermeture : **
 
 o	Remplit des petites cavités
 
@@ -547,7 +549,7 @@ o	Connecte les composants connectés proches, comble les trous entre des pixels 
 
 o	Ne préserve pas la continuité
 
-•	Dilatation : 
+**•	Dilatation : **
 
 o	Correspond à une "addition"
 
@@ -559,7 +561,7 @@ o	Peut connecter les objets voisins
 
 o	Fait disparaître des petits détails
 
-•	Érosion :
+**•	Érosion :**
 
 o	Correspond à une "soustraction"
 
@@ -569,7 +571,7 @@ o	Peut diviser un objet avec des concavités ou des trous en plusieurs objets
 
 o	Fait disparaître les petits objets et les détails
 
-•	Remplissage des trous : 
+**•	Remplissage des trous : **
 
 o	Remplit les trous dans les objets
 
