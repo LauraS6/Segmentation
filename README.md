@@ -17,11 +17,11 @@ Laura Seimpere : laura.seimpere@etu.unistra.fr
 
 **3. CHOISIR LA MÉTHODE D'IMPORTATION DES IMAGES**
 
-	**3.1. A partir d'un dossier de l'ordinateur contenant des fichiers DICOM : **
+   - 3.1. A partir d'un dossier de l'ordinateur contenant des fichiers DICOM : 
 	
-•	Cliquer sur la barre de recherche de répertoire à côté de l’option "Charger depuis DICOM" puis cliquer sur "Importer et charger"
+      •	Cliquer sur la barre de recherche de répertoire à côté de l’option "Charger depuis DICOM" puis cliquer sur "Importer et charger"
 	
-	**3.2. A partir d'images préalablement (ou non) chargées sous 3D Slicer :**
+   - 3.2. A partir d'images préalablement (ou non) chargées sous 3D Slicer :
 	
 	**•	Si les images ont été préalablement chargées sous 3D Slicer**
 	
