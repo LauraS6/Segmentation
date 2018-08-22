@@ -48,13 +48,13 @@ Cliquer sur "Ok" si toutes les informations sont comprises
 
         o Soit choisir parmi les volumes d'images déjà chargés dans 3D Slicer et qui s’affichent dans le premier tableau avec un classement par "PatientsName" :
 	
-          • Cliquer sur le volume désiré (par exemple : cd 11) puis sur la modalité d'imagerie à analyser, affichée dans le troisième tableau (par exemple : AP Artériel 3.0 l30f)
+         • Cliquer sur le volume désiré (par exemple : cd 11) puis sur la modalité d'imagerie à analyser, affichée dans le troisième tableau (par exemple : AP Artériel 3.0 l30f)
 		
-          • Cliquer sur "Load" en bas à gauche de la fenêtre
+         • Cliquer sur "Load" en bas à gauche de la fenêtre
 		
-	      •	Fermer la petite fenêtre "DICOM" en cliquant sur la croix en haut à droite de la fenêtre
+         • Fermer la petite fenêtre "DICOM" en cliquant sur la croix en haut à droite de la fenêtre
 
-	      • De retour sur notre module, charger les images dans le module courant en cliquant sur "Importer et charger" au bout de la ligne de l'option sélectionnée "Charger depuis SLICER"
+	 • De retour sur notre module, charger les images dans le module courant en cliquant sur "Importer et charger" au bout de la ligne de l'option sélectionnée "Charger depuis SLICER"
 
 
 **4. ÉTAPE OPTIONNELLE : CALCUL DE SIGMA SUR UNE ZONE HOMOGÈNE**
@@ -98,17 +98,17 @@ Cliquer sur "Ok" si toutes les informations sont comprises
 
 **N.B. :** Si l’utilisateur veut visualiser l’histogramme :
 
-        o Glisser sur l’épingle en haut à gauche de la fenêtre de visualisation 3D
+    o Glisser sur l’épingle en haut à gauche de la fenêtre de visualisation 3D
     
-        o Choisir "Bar" ou "Line" dans l’option "Plot type"
+    o Choisir "Bar" ou "Line" dans l’option "Plot type"
     
-        o Sélectionner le mode d’interaction désiré : 
+    o Sélectionner le mode d’interaction désiré : 
     
-	  •	"pan view" (si l’utilisateur clique sur l’histogramme, alors il peut le déplacer dans la fenêtre)
+      •	"pan view" (si l’utilisateur clique sur l’histogramme, alors il peut le déplacer dans la fenêtre)
 		
-	  •	"select points" ou "free-hand select points" (si l’utilisateur veut pouvoir sélectionner des points avec la souris)
+      •	"select points" ou "free-hand select points" (si l’utilisateur veut pouvoir sélectionner des points avec la souris)
 		
-	  •	"move points" (si l’utilisateur veut déplacer des points sur la courbe)
+      •	"move points" (si l’utilisateur veut déplacer des points sur la courbe)
 
 •	La box "Résultats" affiche les valeurs des bornes encadrant le pic du foie, sélectionnées par l’utilisateur
 
