@@ -23,26 +23,26 @@ Laura Seimpere : laura.seimpere@etu.unistra.fr
 	
    - 3.2. A partir d'images préalablement (ou non) chargées sous 3D Slicer :
 	
-	**•	Si les images ont été préalablement chargées sous 3D Slicer**
+     • **Si les images ont été préalablement chargées sous 3D Slicer**
 	
-•	Cliquer sur "Charger depuis SLICER" pour sélectionner cette option
+      - Cliquer sur "Charger depuis SLICER" pour sélectionner cette option
 
-•	Ignorer la pop-up "Charger les images" qui apparaît en cliquant sur "Cancel"
+      - Ignorer la pop-up "Charger les images" qui apparaît en cliquant sur "Cancel"
 
-•	Choisir dans le menu déroulant le volume à charger parmi ceux disponibles
+      - Choisir dans le menu déroulant le volume à charger parmi ceux disponibles
 
-•	Cliquer sur "Importer et charger" au bout de la ligne de l'option sélectionnée "Charger depuis SLICER"
+      - Cliquer sur "Importer et charger" au bout de la ligne de l'option sélectionnée "Charger depuis SLICER"
 
-	**•	Si les images n’ont pas été préalablement chargées sous 3D Slicer**
+     • **Si les images n’ont pas été préalablement chargées sous 3D Slicer**
 	
-•	Cliquer sur "Charger depuis SLICER" pour sélectionner cette option
+      - Cliquer sur "Charger depuis SLICER" pour sélectionner cette option
 
-•	Une pop-up "Charger les images" apparaît pour donner à l'utilisateur les consignes à suivre :
+      - Une pop-up "Charger les images" apparaît pour donner à l'utilisateur les consignes à suivre :
 Cliquer sur "Ok" si toutes les informations sont comprises
 
-•	Une autre pop-up appelée "DICOM" s'est affichée simultanément en arrière-plan de l'écran
+      - Une autre pop-up appelée "DICOM" s'est affichée simultanément en arrière-plan de l'écran
 
-•	Cliquer sur "Show DICOM Browser"
+      - Cliquer sur "Show DICOM Browser"
 
     	o	Soit choisir "Import" en haut à gauche puis suivre la démarche de recherche d'images DICOM dans les répertoires de l’ordinateur
 
