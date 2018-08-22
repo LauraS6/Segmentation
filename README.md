@@ -1,11 +1,10 @@
-# Segmentation
-« Segmentation du foie et de la cavité abdominale pour l'appariement donneur / receveur en transplantation hépatique »
+# Segmentation « Segmentation du foie et de la cavité abdominale pour l'appariement donneur / receveur en transplantation hépatique »
 
-NOTICE D’UTILISATION DES MODULES PERSONNALISÉS CRÉÉS SOUS 3D SLICER
+# NOTICE D’UTILISATION DES MODULES PERSONNALISÉS CRÉÉS SOUS 3D SLICER
  
-UTILISATION DE 3D SLICER POUR LA
+# UTILISATION DE 3D SLICER POUR LA
 
-A)	 SEGMENTATION DU FOIE
+## A)	 SEGMENTATION DU FOIE
 
 
 1. OUVRIR le logiciel "3D Slicer"
@@ -290,9 +289,9 @@ Cliquer sur "Ok" si toutes les informations sont comprises
  
  
  
-UTILISATION DE 3D SLICER POUR LA
+# UTILISATION DE 3D SLICER POUR LA
  
-B)	SEGMENTATION DE LA CAVITÉ ABDOMINALE
+## B)	SEGMENTATION DE LA CAVITÉ ABDOMINALE
 
 1. OUVRIR le logiciel "3D Slicer"
 
@@ -426,9 +425,9 @@ Même étapes que précédemment
  
 
 
-UTILISATION DE 3D SLICER POUR LA
+# UTILISATION DE 3D SLICER POUR LA
  
-C)	SUPERPOSITION DU FOIE SEGMENTÉ DU DONNEUR ET DE LA CAVITÉ ABDOMINALE SEGMENTÉE DU RECEVEUR
+## C)	SUPERPOSITION DU FOIE SEGMENTÉ DU DONNEUR ET DE LA CAVITÉ ABDOMINALE SEGMENTÉE DU RECEVEUR
 
 1. OUVRIR le logiciel "3D Slicer"
 
@@ -499,9 +498,9 @@ superposés, en transparence, coupe par coupe, et dans n’importe quel plan ana
 
 
 
-UTILISATION DE 3D SLICER POUR LA
+# UTILISATION DE 3D SLICER POUR LA
  
-D)	SAUVEGARDE ET RÉINITIALISATION
+## D)	SAUVEGARDE ET RÉINITIALISATION
 
 Une fois la segmentation terminée et satisfaisante, il est possible de SAUVEGARDER SON TRAVAIL indépendamment de ce que les modules créés permettent déjà de sauvegarder automatiquement au cours de leur utilisation
 
@@ -526,7 +525,7 @@ POUR RÉINITIALISER L'INTERFACE DU MODULE
 
 
  
-ANNEXE : DESCRIPTION DES DIFFÉRENTES OPÉRATIONS DE MORPHOLOGIE MATHÉMATIQUE
+## ANNEXE : DESCRIPTION DES DIFFÉRENTES OPÉRATIONS DE MORPHOLOGIE MATHÉMATIQUE
 
 •	Ouverture : 
 
