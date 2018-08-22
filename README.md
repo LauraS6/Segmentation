@@ -154,19 +154,19 @@ L’explication des opérations de morphologie mathématique applicables est fou
 
 •	Si le résultat affiché n'est pas un foie correspondant au foie originel, visible en transparence lorsque l'utilisateur parcourt les différentes coupes, il faut affiner la segmentation :
 
-        o Sélectionner à nouveau le dernier volume d’entrée du menu déroulant (celui qui vient de subir la fermeture) puis choisir une opération de morphologie mathématique à appliquer à ce volume (qui peut être suivie par un retour à l'étape précédente pour sélectionner à nouveau le foie) :
+    o Sélectionner à nouveau le dernier volume d’entrée du menu déroulant (celui qui vient de subir la fermeture) puis choisir une opération de morphologie mathématique à appliquer à ce volume (qui peut être suivie par un retour à l'étape précédente pour sélectionner à nouveau le foie) :
     
-	  •	"Ouverture" pour déconnecter des composantes connexes d'intensités différentes
+      •	"Ouverture" pour déconnecter des composantes connexes d'intensités différentes
 
-	  •	"Dilatation" pour augmenter le nombre de pixels considérés comme appartenant au foie = visuellement, on constate une expansion du volume
+      •	"Dilatation" pour augmenter le nombre de pixels considérés comme appartenant au foie = visuellement, on constate une expansion du volume
 
-	  •	"Érosion" pour diminuer le nombre de pixels considérés comme appartenant au foie = visuellement, on constate une diminution du volume
+      •	"Érosion" pour diminuer le nombre de pixels considérés comme appartenant au foie = visuellement, on constate une diminution du volume
 
-	  •	"Fermeture" pour combler les trous entre des pixels voisins d'intensités similaires, pour fermer le volume défini
+      •	"Fermeture" pour combler les trous entre des pixels voisins d'intensités similaires, pour fermer le volume défini
 
-	  •	"Remplissage des trous" pour combler des trous dans la segmentation
+      •	"Remplissage des trous" pour combler des trous dans la segmentation
 
-        o **Attention** à bien choisir, en entrée, le dernier volume traité, puis cliquer sur "Exécuter la segmentation finale" à chaque sélection d'option pour afficher le résultat et l'affiner
+    o **Attention** à bien choisir, en entrée, le dernier volume traité, puis cliquer sur "Exécuter la segmentation finale" à chaque sélection d'option pour afficher le résultat et l'affiner
 
 •	Si le résultat affiché est convenable mais contient encore des erreurs (foie sur ou sous-segmenté), il faut l’affiner plus précisément et donc manuellement. Pour cela, une pop-up "Segmentation du foie" s’affiche pour préconiser à l’utilisateur d’affiner sa segmentation.
 Cliquer sur "Ok" si toutes les informations sont comprises
@@ -180,9 +180,10 @@ Cliquer sur "Ok" si toutes les informations sont comprises
 (Pour revenir au visuel du module : "View"  "Module Panel")
 
 •	Dans "Segment Editor" :
-        o Pour l’option "Master volume", choisir la dernière option du menu déroulant "Labelmap du foie"
 
-        o Cliquer sur "Paint" ou "Erase" pour, respectivement, ajouter ou supprimer des voxels au foie segmenté – apparaissant en bleu  –. Pour cela, l’utilisateur peint ou supprime par brossage sur les coupes visualisées, dans les différents plans (cliquer de manière prolongée sans relâcher la souris pour des corrections sur une zone étendue ou cliquer ponctuellement pour des corrections précises)
+    o Pour l’option "Master volume", choisir la dernière option du menu déroulant "Labelmap du foie"
+
+    o Cliquer sur "Paint" ou "Erase" pour, respectivement, ajouter ou supprimer des voxels au foie segmenté – apparaissant en bleu  –. Pour cela, l’utilisateur peint ou supprime par brossage sur les coupes visualisées, dans les différents plans (cliquer de manière prolongée sans relâcher la souris pour des corrections sur une zone étendue ou cliquer ponctuellement pour des corrections précises)
     
 Il est possible de changer le diamètre de la sphère permettant ces ajouts et suppressions en cliquant sur les chiffres ou en tapant un chiffre dans le module :
 
@@ -190,7 +191,7 @@ Il est possible de changer le diamètre de la sphère permettant ces ajouts et s
 
 **Attention** à décocher "Edit in 3D views" pour modifier le positionnement de l’image dans la visualisation 3D
 
-        o Une fois ces modifications effectuées avec succès, fermer la fenêtre "Segment Editor" en cliquant sur la croix en haut à droite de la fenêtre
+    o Une fois ces modifications effectuées avec succès, fermer la fenêtre "Segment Editor" en cliquant sur la croix en haut à droite de la fenêtre
 
 •	Cliquer sur "Résultat de la segmentation" afin de convertir les modifications effectuées en un nouveau volume qui est parallèlement sauvegardé au format NIFTI dans le répertoire courant "TroisDSlicer" sous le nom "FoieSegmenteDonneur.nii"
 
@@ -243,9 +244,9 @@ Cliquer sur "Ok" si toutes les informations sont comprises
 
 •	Les résultats s'affichent dans un tableau où 
 
-        o le label 0 noir correspond à {toute l'image moins le foie segmenté}
+    o le label 0 noir correspond à {toute l'image moins le foie segmenté}
     
-        o le label 1 bleu correspond au {foie segmenté} (visible quand on glisse le menu déroulant vers le bas)
+    o le label 1 bleu correspond au {foie segmenté} (visible quand on glisse le menu déroulant vers le bas)
     
 •	Il est possible d'exporter le tableau pour l'afficher à droite de l'écran en cliquant sur "Exporter en tableau"
 	
@@ -334,11 +335,11 @@ Cliquer sur "Ok" si toutes les informations sont comprises
 
         o Soit choisir parmi les volumes d'images déjà chargés dans 3D Slicer et qui s’affichent dans le premier tableau avec un classement par "PatientsName" :
 
-	  • Cliquer sur le volume désiré (par exemple : cd 11) puis sur la modalité d'imagerie à analyser, affichée dans le troisième tableau (par exemple : AP Artériel 3.0 l30f)
+         • Cliquer sur le volume désiré (par exemple : cd 11) puis sur la modalité d'imagerie à analyser, affichée dans le troisième tableau (par exemple : AP Artériel 3.0 l30f)
 	
-	  • Cliquer sur "Load" en bas à gauche de la fenêtre
+         • Cliquer sur "Load" en bas à gauche de la fenêtre
 	
-	  • Fermer la petite fenêtre "DICOM" en cliquant sur la croix en haut à droite de la fenêtre
+         • Fermer la petite fenêtre "DICOM" en cliquant sur la croix en haut à droite de la fenêtre
 
 •	De retour sur notre module, charger les images dans le module courant en cliquant sur "Importer et charger" au bout de la ligne de l'option sélectionnée "Charger depuis SLICER"
 
@@ -362,13 +363,13 @@ Cliquer sur "Ok" si toutes les informations sont comprises
 
         o S’il est nécessaire de supprimer un ou plusieurs marqueurs pour pouvoir réajuster le modèle par de nouveaux marqueurs :
 		
-	  • Cliquer sur le menu déroulant "Modules" dans la barre d’outils puis sur "Data"
+         • Cliquer sur le menu déroulant "Modules" dans la barre d’outils puis sur "Data"
 		
-	  • Trouver la ligne correspondant aux marqueurs "A-i" :  
+         • Trouver la ligne correspondant aux marqueurs "A-i" :  
 		
-	  • Cliquer (droit) sur la ligne et sélectionner "Edit properties"
+         • Cliquer (droit) sur la ligne et sélectionner "Edit properties"
 		
-	  • Si le numéro de marqueur erroné est connu, cliquer sur sa ligne et choisir "Delete highlighted fiducial(s)" puis sur "Delete"
+         • Si le numéro de marqueur erroné est connu, cliquer sur sa ligne et choisir "Delete highlighted fiducial(s)" puis sur "Delete"
 		
 •	Laisser cochée la case "Rognage extérieur"
 
@@ -472,22 +473,17 @@ cavité abdominale
 
 •	Dans "General Registration (Elastix)" :
 
-        o Pour l’option "Fixed volume", choisir le volume de la cavité abdominale segmentée
-qui vient d’être chargé
+        o Pour l’option "Fixed volume", choisir le volume de la cavité abdominale segmentée qui vient d’être chargé
 
-        o Pour l’option "Moving volume", choisir le volume du foie segmenté qui vient d’être
-chargé
+        o Pour l’option "Moving volume", choisir le volume du foie segmenté qui vient d’être chargé
 
         o Pour l’option "Preset", choisir "generic rigid (all)"
 	
-        o Choisir "Create new Volume" dans l’option "Output volume" et cliquer sur le volume
-créé "Volume" s’il n’est pas déjà présélectionné
+        o Choisir "Create new Volume" dans l’option "Output volume" et cliquer sur le volume créé "Volume" s’il n’est pas déjà présélectionné
 
         o Cliquer sur "Apply" puis attendre la fin du recalage
 	
-        o Dès qu’apparaît "Registration is completed", dans la box sous "Apply", fermer la
-fenêtre "General Registration (Elastix)" en cliquant sur la croix en haut à droite de la
-fenêtre
+        o Dès qu’apparaît "Registration is completed", dans la box sous "Apply", fermer la fenêtre "General Registration (Elastix)" en cliquant sur la croix en haut à droite de la fenêtre
 
 •	Choisir le "Volume d’entrée de la cavité" correspondant au volume préalablement chargé de la cavité abdominale segmentée au format NIFTI
 
