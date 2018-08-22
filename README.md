@@ -244,9 +244,9 @@ Cliquer sur "Ok" si toutes les informations sont comprises
 
 •	Les résultats s'affichent dans un tableau où 
 
-    o le label 0 noir correspond à {toute l'image moins le foie segmenté}
+        o le label 0 noir correspond à {toute l'image moins le foie segmenté}
     
-    o le label 1 bleu correspond au {foie segmenté} (visible quand on glisse le menu déroulant vers le bas)
+        o le label 1 bleu correspond au {foie segmenté} (visible quand on glisse le menu déroulant vers le bas)
     
 •	Il est possible d'exporter le tableau pour l'afficher à droite de l'écran en cliquant sur "Exporter en tableau"
 	
