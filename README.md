@@ -525,7 +525,7 @@ Une fois la segmentation terminée et satisfaisante, il est possible de SAUVEGAR
  
 ## ANNEXE : DESCRIPTION DES DIFFÉRENTES OPÉRATIONS DE MORPHOLOGIE MATHÉMATIQUE
 
-**•	Ouverture : **
+•	**Ouverture : **
 
         o Déconnecte des composantes connexes d'intensités différentes
 
@@ -537,7 +537,7 @@ Une fois la segmentation terminée et satisfaisante, il est possible de SAUVEGAR
 
         o Ne préserve pas la connexité
 
-**•	Fermeture : **
+•	**Fermeture : **
 
         o Remplit des petites cavités
 
@@ -545,7 +545,7 @@ Une fois la segmentation terminée et satisfaisante, il est possible de SAUVEGAR
 
         o Ne préserve pas la continuité
 
-**•	Dilatation : **
+•	**Dilatation : **
 
         o Correspond à une "addition"
 
@@ -557,7 +557,7 @@ Une fois la segmentation terminée et satisfaisante, il est possible de SAUVEGAR
 
         o Fait disparaître des petits détails
 
-**•	Érosion :**
+•	**Érosion :**
 
         o Correspond à une "soustraction"
 
@@ -567,7 +567,7 @@ Une fois la segmentation terminée et satisfaisante, il est possible de SAUVEGAR
 
         o Fait disparaître les petits objets et les détails
 
-**•	Remplissage des trous : **
+•	**Remplissage des trous :**
 
         o Remplit les trous dans les objets
 
