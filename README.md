@@ -17,7 +17,7 @@ Laura Seimpere : laura.seimpere@etu.unistra.fr
 
 **3. CHOISIR LA MÉTHODE D'IMPORTATION DES IMAGES**
 
-   - **3.1. A partir d'un dossier de l'ordinateur contenant des fichiers DICOM : **
+   - **3.1. A partir d'un dossier de l'ordinateur contenant des fichiers DICOM :**
 	
       •	Cliquer sur la barre de recherche de répertoire à côté de l’option "Charger depuis DICOM" puis cliquer sur "Importer et charger"
 	
@@ -304,7 +304,7 @@ Cliquer sur "Ok" si toutes les informations sont comprises
 
 **3. CHOISIR LA MÉTHODE D'IMPORTATION DES IMAGES**
 
-   - **3.1. A partir d'un dossier de l'ordinateur contenant des fichiers DICOM : **
+   - **3.1. A partir d'un dossier de l'ordinateur contenant des fichiers DICOM :**
 	
       •	Cliquer sur la barre de recherche de répertoire à côté de l’option "Charger depuis DICOM" puis cliquer sur "Importer et charger"
 	
@@ -525,7 +525,7 @@ Une fois la segmentation terminée et satisfaisante, il est possible de SAUVEGAR
  
 ## ANNEXE : DESCRIPTION DES DIFFÉRENTES OPÉRATIONS DE MORPHOLOGIE MATHÉMATIQUE
 
-•	**Ouverture : **
+•	**Ouverture :**
 
         o Déconnecte des composantes connexes d'intensités différentes
 
@@ -537,7 +537,7 @@ Une fois la segmentation terminée et satisfaisante, il est possible de SAUVEGAR
 
         o Ne préserve pas la connexité
 
-•	**Fermeture : **
+•	**Fermeture :**
 
         o Remplit des petites cavités
 
@@ -545,7 +545,7 @@ Une fois la segmentation terminée et satisfaisante, il est possible de SAUVEGAR
 
         o Ne préserve pas la continuité
 
-•	**Dilatation : **
+•	**Dilatation :**
 
         o Correspond à une "addition"
 
