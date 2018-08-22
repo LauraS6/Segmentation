@@ -166,7 +166,7 @@ L’explication des opérations de morphologie mathématique applicables est fou
 
       •	"Remplissage des trous" pour combler des trous dans la segmentation
 
-    o **Attention** à bien choisir, en entrée, le dernier volume traité, puis cliquer sur "Exécuter la segmentation finale" à chaque sélection d'option pour afficher le résultat et l'affiner
+    o Attention à bien choisir, en entrée, le dernier volume traité, puis cliquer sur "Exécuter la segmentation finale" à chaque sélection d'option pour afficher le résultat et l'affiner
 
 •	Si le résultat affiché est convenable mais contient encore des erreurs (foie sur ou sous-segmenté), il faut l’affiner plus précisément et donc manuellement. Pour cela, une pop-up "Segmentation du foie" s’affiche pour préconiser à l’utilisateur d’affiner sa segmentation.
 Cliquer sur "Ok" si toutes les informations sont comprises
