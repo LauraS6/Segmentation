@@ -17,11 +17,11 @@ Laura Seimpere : laura.seimpere@etu.unistra.fr
 
 **3. CHOISIR LA MÉTHODE D'IMPORTATION DES IMAGES**
 
-   - 3.1. A partir d'un dossier de l'ordinateur contenant des fichiers DICOM : 
+   - **3.1. A partir d'un dossier de l'ordinateur contenant des fichiers DICOM : **
 	
       •	Cliquer sur la barre de recherche de répertoire à côté de l’option "Charger depuis DICOM" puis cliquer sur "Importer et charger"
 	
-   - 3.2. A partir d'images préalablement (ou non) chargées sous 3D Slicer :
+   - **3.2. A partir d'images préalablement (ou non) chargées sous 3D Slicer :**
 	
      • **Si les images ont été préalablement chargées sous 3D Slicer**
 	
@@ -44,17 +44,17 @@ Cliquer sur "Ok" si toutes les informations sont comprises
 
       - Cliquer sur "Show DICOM Browser"
 
-    	o	Soit choisir "Import" en haut à gauche puis suivre la démarche de recherche d'images DICOM dans les répertoires de l’ordinateur
+        o Soit choisir "Import" en haut à gauche puis suivre la démarche de recherche d'images DICOM dans les répertoires de l’ordinateur
 
-    	o	Soit choisir parmi les volumes d'images déjà chargés dans 3D Slicer et qui s’affichent dans le premier tableau avec un classement par "PatientsName" :
+        o Soit choisir parmi les volumes d'images déjà chargés dans 3D Slicer et qui s’affichent dans le premier tableau avec un classement par "PatientsName" :
 	
-		•	Cliquer sur le volume désiré (par exemple : cd 11) puis sur la modalité d'imagerie à analyser, affichée dans le troisième tableau (par exemple : AP Artériel 3.0 l30f)
+	      • Cliquer sur le volume désiré (par exemple : cd 11) puis sur la modalité d'imagerie à analyser, affichée dans le troisième tableau (par exemple : AP Artériel 3.0 l30f)
 		
-		•	Cliquer sur "Load" en bas à gauche de la fenêtre
+	      • Cliquer sur "Load" en bas à gauche de la fenêtre
 		
-		•	Fermer la petite fenêtre "DICOM" en cliquant sur la croix en haut à droite de la fenêtre
+	      •	Fermer la petite fenêtre "DICOM" en cliquant sur la croix en haut à droite de la fenêtre
 
-		•	De retour sur notre module, charger les images dans le module courant en cliquant sur "Importer et charger" au bout de la ligne de l'option sélectionnée "Charger depuis SLICER"
+	      • De retour sur notre module, charger les images dans le module courant en cliquant sur "Importer et charger" au bout de la ligne de l'option sélectionnée "Charger depuis SLICER"
 
 
 **4. ÉTAPE OPTIONNELLE : CALCUL DE SIGMA SUR UNE ZONE HOMOGÈNE**
@@ -98,17 +98,17 @@ Cliquer sur "Ok" si toutes les informations sont comprises
 
 **N.B. :** Si l’utilisateur veut visualiser l’histogramme :
 
-    o	Glisser sur l’épingle en haut à gauche de la fenêtre de visualisation 3D
+        o Glisser sur l’épingle en haut à gauche de la fenêtre de visualisation 3D
     
-    o	Choisir "Bar" ou "Line" dans l’option "Plot type"
+        o Choisir "Bar" ou "Line" dans l’option "Plot type"
     
-    o	Sélectionner le mode d’interaction désiré : 
+        o Sélectionner le mode d’interaction désiré : 
     
-		•	"pan view" (si l’utilisateur clique sur l’histogramme, alors il peut le déplacer dans la fenêtre)
+	  •	"pan view" (si l’utilisateur clique sur l’histogramme, alors il peut le déplacer dans la fenêtre)
 		
-		•	"select points" ou "free-hand select points" (si l’utilisateur veut pouvoir sélectionner des points avec la souris)
+	  •	"select points" ou "free-hand select points" (si l’utilisateur veut pouvoir sélectionner des points avec la souris)
 		
-		•	"move points" (si l’utilisateur veut déplacer des points sur la courbe)
+	  •	"move points" (si l’utilisateur veut déplacer des points sur la courbe)
 
 •	La box "Résultats" affiche les valeurs des bornes encadrant le pic du foie, sélectionnées par l’utilisateur
 
@@ -154,19 +154,19 @@ L’explication des opérations de morphologie mathématique applicables est fou
 
 •	Si le résultat affiché n'est pas un foie correspondant au foie originel, visible en transparence lorsque l'utilisateur parcourt les différentes coupes, il faut affiner la segmentation :
 
-    o	Sélectionner à nouveau le dernier volume d’entrée du menu déroulant (celui qui vient de subir la fermeture) puis choisir une opération de morphologie mathématique à appliquer à ce volume (qui peut être suivie par un retour à l'étape précédente pour sélectionner à nouveau le foie) :
+        o Sélectionner à nouveau le dernier volume d’entrée du menu déroulant (celui qui vient de subir la fermeture) puis choisir une opération de morphologie mathématique à appliquer à ce volume (qui peut être suivie par un retour à l'étape précédente pour sélectionner à nouveau le foie) :
     
-		•	"Ouverture" pour déconnecter des composantes connexes d'intensités différentes
+	  •	"Ouverture" pour déconnecter des composantes connexes d'intensités différentes
 
-		•	"Dilatation" pour augmenter le nombre de pixels considérés comme appartenant au foie = visuellement, on constate une expansion du volume
+	  •	"Dilatation" pour augmenter le nombre de pixels considérés comme appartenant au foie = visuellement, on constate une expansion du volume
 
-		•       "Érosion" pour diminuer le nombre de pixels considérés comme appartenant au foie = visuellement, on constate une diminution du volume
+	  •	"Érosion" pour diminuer le nombre de pixels considérés comme appartenant au foie = visuellement, on constate une diminution du volume
 
-		•	"Fermeture" pour combler les trous entre des pixels voisins d'intensités similaires, pour fermer le volume défini
+	  •	"Fermeture" pour combler les trous entre des pixels voisins d'intensités similaires, pour fermer le volume défini
 
-		•	"Remplissage des trous" pour combler des trous dans la segmentation
+	  •	"Remplissage des trous" pour combler des trous dans la segmentation
 
-    o	**Attention** à bien choisir, en entrée, le dernier volume traité, puis cliquer sur "Exécuter la segmentation finale" à chaque sélection d'option pour afficher le résultat et l'affiner
+        o **Attention** à bien choisir, en entrée, le dernier volume traité, puis cliquer sur "Exécuter la segmentation finale" à chaque sélection d'option pour afficher le résultat et l'affiner
 
 •	Si le résultat affiché est convenable mais contient encore des erreurs (foie sur ou sous-segmenté), il faut l’affiner plus précisément et donc manuellement. Pour cela, une pop-up "Segmentation du foie" s’affiche pour préconiser à l’utilisateur d’affiner sa segmentation.
 Cliquer sur "Ok" si toutes les informations sont comprises
@@ -180,9 +180,9 @@ Cliquer sur "Ok" si toutes les informations sont comprises
 (Pour revenir au visuel du module : "View"  "Module Panel")
 
 •	Dans "Segment Editor" :
-    o	Pour l’option "Master volume", choisir la dernière option du menu déroulant "Labelmap du foie"
+        o Pour l’option "Master volume", choisir la dernière option du menu déroulant "Labelmap du foie"
 
-    o	Cliquer sur "Paint" ou "Erase" pour, respectivement, ajouter ou supprimer des voxels au foie segmenté – apparaissant en bleu  –. Pour cela, l’utilisateur peint ou supprime par brossage sur les coupes visualisées, dans les différents plans (cliquer de manière prolongée sans relâcher la souris pour des corrections sur une zone étendue ou cliquer ponctuellement pour des corrections précises)
+        o Cliquer sur "Paint" ou "Erase" pour, respectivement, ajouter ou supprimer des voxels au foie segmenté – apparaissant en bleu  –. Pour cela, l’utilisateur peint ou supprime par brossage sur les coupes visualisées, dans les différents plans (cliquer de manière prolongée sans relâcher la souris pour des corrections sur une zone étendue ou cliquer ponctuellement pour des corrections précises)
     
 Il est possible de changer le diamètre de la sphère permettant ces ajouts et suppressions en cliquant sur les chiffres ou en tapant un chiffre dans le module :
 
@@ -190,7 +190,7 @@ Il est possible de changer le diamètre de la sphère permettant ces ajouts et s
 
 **Attention** à décocher "Edit in 3D views" pour modifier le positionnement de l’image dans la visualisation 3D
 
-    o	Une fois ces modifications effectuées avec succès, fermer la fenêtre "Segment Editor" en cliquant sur la croix en haut à droite de la fenêtre
+        o Une fois ces modifications effectuées avec succès, fermer la fenêtre "Segment Editor" en cliquant sur la croix en haut à droite de la fenêtre
 
 •	Cliquer sur "Résultat de la segmentation" afin de convertir les modifications effectuées en un nouveau volume qui est parallèlement sauvegardé au format NIFTI dans le répertoire courant "TroisDSlicer" sous le nom "FoieSegmenteDonneur.nii"
 
@@ -199,36 +199,36 @@ Il est possible de changer le diamètre de la sphère permettant ces ajouts et s
 
 **10. CALCUL DE LA DISTANCE ENTRE DEUX POINTS SUR LE FOIE**
 
-	**10. 1. Distances automatiques**
+   - **10. 1. Distances automatiques**
 	
-•	Cliquer sur "Calculer les distances automatiques" et attendre
+      •	Cliquer sur "Calculer les distances automatiques" et attendre
 
-•	Les résultats des distances caractéristiques en mm (longueur, largeur, profondeur du foie) s'affichent alors dans la box "Résultats" de l'option
+      •	Les résultats des distances caractéristiques en mm (longueur, largeur, profondeur du foie) s'affichent alors dans la box "Résultats" de l'option
 
-	**10. 2. Distances manuelles**
+   - **10. 2. Distances manuelles**
 	
-•	Cliquer sur "Configurer les distances manuelles" : la pop-up "Distances du foie" explique alors à l'utilisateur ce qui est attendu de lui pour calculer correctement les distances désirées.
+      •	Cliquer sur "Configurer les distances manuelles" : la pop-up "Distances du foie" explique alors à l'utilisateur ce qui est attendu de lui pour calculer correctement les distances désirées.
 Cliquer sur "Ok" si toutes les informations sont comprises 
 
-•	Le menu "Choisir une distance" demande d'abord à l'utilisateur de sélectionner les deux points en "Profondeur (coupe axiale)" : sur la coupe axiale, cliquer sur deux points correspondant à la profondeur du foie; les points s'affichent alors en rose
+      •	Le menu "Choisir une distance" demande d'abord à l'utilisateur de sélectionner les deux points en "Profondeur (coupe axiale)" : sur la coupe axiale, cliquer sur deux points correspondant à la profondeur du foie; les points s'affichent alors en rose
 
-•	Choisir une autre distance dans le menu déroulant :
+      •	Choisir une autre distance dans le menu déroulant :
 
-    o	Hauteur dans la coupe sagittale : cliquer sur deux points correspondant à la hauteur du foie; les points s’affichent alors en rouge
+        o Hauteur dans la coupe sagittale : cliquer sur deux points correspondant à la hauteur du foie; les points s’affichent alors en rouge
     
-    o	Longueur horizontale dans la coupe coronale : cliquer sur deux points correspondant à la longueur horizontale du foie; les points s’affichent alors en vert
+        o Longueur horizontale dans la coupe coronale : cliquer sur deux points correspondant à la longueur horizontale du foie; les points s’affichent alors en vert
 
-•	Si un point a été mal positionné sur une coupe, il suffit de désélectionner le marqueur fiducial dans la barre d’outils, en haut de l’écran, puis de cliquer sur le point mal positionné et de le déplacer à la position voulue
+      •	Si un point a été mal positionné sur une coupe, il suffit de désélectionner le marqueur fiducial dans la barre d’outils, en haut de l’écran, puis de cliquer sur le point mal positionné et de le déplacer à la position voulue
 
-•	Si l’utilisateur souhaite supprimer un point placé dans le mauvais plan ou la mauvaise coupe, il suffit de sélectionner dans le menu déroulant la distance dans laquelle se trouve ce point (Profondeur, Hauteur, Longueur) puis de cliquer sur la poubelle       (avant-dernier icône de la ligne "Choisir une distance"), autant de fois que nécessaire (dépend du nombre de points cliqués par distance sélectionnée) 
+      •	Si l’utilisateur souhaite supprimer un point placé dans le mauvais plan ou la mauvaise coupe, il suffit de sélectionner dans le menu déroulant la distance dans laquelle se trouve ce point (Profondeur, Hauteur, Longueur) puis de cliquer sur la poubelle       (avant-dernier icône de la ligne "Choisir une distance"), autant de fois que nécessaire (dépend du nombre de points cliqués par distance sélectionnée) 
 
-•	Si deux points mal placés appartiennent à deux options différentes, il suffit de supprimer les points un par un en sélectionnant la bonne distance pour chacun
+      •	Si deux points mal placés appartiennent à deux options différentes, il suffit de supprimer les points un par un en sélectionnant la bonne distance pour chacun
 
-•	Pour sélectionner un nouveau point après une suppression, il suffit de cliquer sur le marqueur fiducial (à gauche de la poubelle, dans le module, ou dans la barre d’outils, en haut de l’écran)
+      •	Pour sélectionner un nouveau point après une suppression, il suffit de cliquer sur le marqueur fiducial (à gauche de la poubelle, dans le module, ou dans la barre d’outils, en haut de l’écran)
 
-•	Cliquer sur "Calculer les distances manuelles" (dès que les 6 points sont sélectionnés et correctement placés)
+      •	Cliquer sur "Calculer les distances manuelles" (dès que les 6 points sont sélectionnés et correctement placés)
 
-•	Les résultats des distances en mm s'affichent dans la box "Résultats" de l'option
+      •	Les résultats des distances en mm s'affichent dans la box "Résultats" de l'option
 
 
 **11. CALCUL DU VOLUME DU FOIE**
@@ -243,9 +243,9 @@ Cliquer sur "Ok" si toutes les informations sont comprises
 
 •	Les résultats s'affichent dans un tableau où 
 
-    o	le label 0 noir correspond à {toute l'image moins le foie segmenté}
+        o le label 0 noir correspond à {toute l'image moins le foie segmenté}
     
-    o	le label 1 bleu correspond au {foie segmenté} (visible quand on glisse le menu déroulant vers le bas)
+        o le label 1 bleu correspond au {foie segmenté} (visible quand on glisse le menu déroulant vers le bas)
     
 •	Il est possible d'exporter le tableau pour l'afficher à droite de l'écran en cliquant sur "Exporter en tableau"
 	
@@ -264,11 +264,11 @@ Cliquer sur "Ok" si toutes les informations sont comprises
 
 •	Les résultats s’affichent comme précédemment :
 
-    o	le label 0 noir correspond à {toute l'image moins le foie segmenté}
+        o le label 0 noir correspond à {toute l'image moins le foie segmenté}
     
-    o	le label 1 vert correspond au {foie segmenté}
+        o le label 1 vert correspond au {foie segmenté}
     
-    o	le label 2 jaune correspond à {l’ensemble extérieur}
+        o le label 2 jaune correspond à {l’ensemble extérieur}
     
 •	Il est possible d'exporter le tableau pour l'afficher à droite de l'écran en cliquant sur "Exporter en tableau"
 
@@ -276,17 +276,17 @@ Cliquer sur "Ok" si toutes les informations sont comprises
 
 •	Les résultats s’affichent dans la box "Résultats" de l’option; il s’agit des valeurs :
 
-    o	du coefficient de similarité DICE (plus la valeur est proche de 1, plus la segmentation est fiable par rapport à la segmentation de référence considérée parfaite)
+        o du coefficient de similarité DICE (plus la valeur est proche de 1, plus la segmentation est fiable par rapport à la segmentation de référence considérée parfaite)
     
-    o	du volumetric overlap VO
+        o du volumetric overlap VO
     
-    o	de l’erreur du volumetric overlap VOE en pourcentage (0 % correspond à une segmentation parfaite mais 100 % est obtenu si la segmentation et la vérité terrain ne correspondent pas du tout)
+        o de l’erreur du volumetric overlap VOE en pourcentage (0 % correspond à une segmentation parfaite mais 100 % est obtenu si la segmentation et la vérité terrain ne correspondent pas du tout)
     
-    o	du volume du foie segmenté par le module en cm³
+        o du volume du foie segmenté par le module en cm³
     
-    o	du volume du foie segmenté de référence en cm³
+        o du volume du foie segmenté de référence en cm³
     
-    o	de la différence relative de volume RVD en pourcentage pour comparer l’erreur entre les volumes du foie segmenté par le module et celui considéré comme vérité terrain
+        o de la différence relative de volume RVD en pourcentage pour comparer l’erreur entre les volumes du foie segmenté par le module et celui considéré comme vérité terrain
  
  
  
@@ -303,42 +303,42 @@ Cliquer sur "Ok" si toutes les informations sont comprises
 
 **3. CHOISIR LA MÉTHODE D'IMPORTATION DES IMAGES**
 
-	**3.1. A partir d'un dossier de l'ordinateur contenant des fichiers DICOM : **
+   - **3.1. A partir d'un dossier de l'ordinateur contenant des fichiers DICOM : **
 	
-•	Cliquer sur la barre de recherche de répertoire à côté de l’option "Charger depuis DICOM" puis cliquer sur "Importer et charger"
+      •	Cliquer sur la barre de recherche de répertoire à côté de l’option "Charger depuis DICOM" puis cliquer sur "Importer et charger"
 	
-	**3.2. A partir d'images préalablement (ou non) chargées sous 3D Slicer :**
+   - **3.2. A partir d'images préalablement (ou non) chargées sous 3D Slicer :**
 	
-	**•	Si les images ont été préalablement chargées sous 3D Slicer**
+     • **Si les images ont été préalablement chargées sous 3D Slicer**
 		
-		•	Cliquer sur "Charger depuis SLICER" pour sélectionner cette option
+      - Cliquer sur "Charger depuis SLICER" pour sélectionner cette option
 		
-		•	Ignorer la pop-up "Charger les images" qui apparaît en cliquant sur "Cancel"
+      - Ignorer la pop-up "Charger les images" qui apparaît en cliquant sur "Cancel"
 
-		•	Choisir dans le menu déroulant le volume à charger parmi ceux disponibles
+      - Choisir dans le menu déroulant le volume à charger parmi ceux disponibles
 
-		•	Cliquer sur "Importer et charger" au bout de la ligne de l'option sélectionnée "Charger depuis SLICER"
+      - Cliquer sur "Importer et charger" au bout de la ligne de l'option sélectionnée "Charger depuis SLICER"
 
-	**•	Si les images n’ont pas été préalablement chargées sous 3D Slicer**
+     • **Si Si les images n’ont pas été préalablement chargées sous 3D Slicer**
 
-		•	Cliquer sur "Charger depuis SLICER" pour sélectionner cette option
+      - Cliquer sur "Charger depuis SLICER" pour sélectionner cette option
 
-		•	Une pop-up "Charger les images" apparaît pour donner à l'utilisateur les consignes à suivre :.
+      - Une pop-up "Charger les images" apparaît pour donner à l'utilisateur les consignes à suivre :.
 Cliquer sur "Ok" si toutes les informations sont comprises
 
-		•	Une autre pop-up appelée "DICOM" s'est affichée simultanément en arrière-plan de l'écran
+      - Une autre pop-up appelée "DICOM" s'est affichée simultanément en arrière-plan de l'écran
 
-		•	Cliquer sur "Show DICOM Browser"
+      - Cliquer sur "Show DICOM Browser"
 
-o	Soit choisir "Import" en haut à gauche puis suivre la démarche de recherche d'images DICOM dans les répertoires de l’ordinateur
+        o Soit choisir "Import" en haut à gauche puis suivre la démarche de recherche d'images DICOM dans les répertoires de l’ordinateur
 
-o	Soit choisir parmi les volumes d'images déjà chargés dans 3D Slicer et qui s’affichent dans le premier tableau avec un classement par "PatientsName" :
+        o Soit choisir parmi les volumes d'images déjà chargés dans 3D Slicer et qui s’affichent dans le premier tableau avec un classement par "PatientsName" :
 
-	•	Cliquer sur le volume désiré (par exemple : cd 11) puis sur la modalité d'imagerie à analyser, affichée dans le troisième tableau (par exemple : AP Artériel 3.0 l30f)
+	  • Cliquer sur le volume désiré (par exemple : cd 11) puis sur la modalité d'imagerie à analyser, affichée dans le troisième tableau (par exemple : AP Artériel 3.0 l30f)
 	
-	•	Cliquer sur "Load" en bas à gauche de la fenêtre
+	  • Cliquer sur "Load" en bas à gauche de la fenêtre
 	
-	•	Fermer la petite fenêtre "DICOM" en cliquant sur la croix en haut à droite de la fenêtre
+	  • Fermer la petite fenêtre "DICOM" en cliquant sur la croix en haut à droite de la fenêtre
 
 •	De retour sur notre module, charger les images dans le module courant en cliquant sur "Importer et charger" au bout de la ligne de l'option sélectionnée "Charger depuis SLICER"
 
@@ -358,17 +358,17 @@ Cliquer sur "Ok" si toutes les informations sont comprises
 
 •	Si la forme du volume n’est pas totalement satisfaisante :
 
-    o	Décocher le marqueur fiducial et cliquer sur les marqueurs "A-i" pour les déplacer et arranger la forme du volume, et ce, dans les différents plans anatomiques (il est même possible de modifier considérablement la forme du volume en cliquant sur ces marqueurs dans la visualisation 3D et en déplaçant ces points)
+        o Décocher le marqueur fiducial et cliquer sur les marqueurs "A-i" pour les déplacer et arranger la forme du volume, et ce, dans les différents plans anatomiques (il est même possible de modifier considérablement la forme du volume en cliquant sur ces marqueurs dans la visualisation 3D et en déplaçant ces points)
 
-    o	S’il est nécessaire de supprimer un ou plusieurs marqueurs pour pouvoir réajuster le modèle par de nouveaux marqueurs :
+        o S’il est nécessaire de supprimer un ou plusieurs marqueurs pour pouvoir réajuster le modèle par de nouveaux marqueurs :
 		
-		•	Cliquer sur le menu déroulant "Modules" dans la barre d’outils puis sur "Data"
+	  • Cliquer sur le menu déroulant "Modules" dans la barre d’outils puis sur "Data"
 		
-		•	Trouver la ligne correspondant aux marqueurs "A-i" :  
+	  • Trouver la ligne correspondant aux marqueurs "A-i" :  
 		
-		•	Cliquer (droit) sur la ligne et sélectionner "Edit properties"
+	  • Cliquer (droit) sur la ligne et sélectionner "Edit properties"
 		
-		•	Si le numéro de marqueur erroné est connu, cliquer sur sa ligne et choisir "Delete highlighted fiducial(s)" puis sur "Delete"
+	  • Si le numéro de marqueur erroné est connu, cliquer sur sa ligne et choisir "Delete highlighted fiducial(s)" puis sur "Delete"
 		
 •	Laisser cochée la case "Rognage extérieur"
 
@@ -391,9 +391,9 @@ Cliquer sur "Ok" si toutes les informations sont comprises
 
 •	Les résultats s'affichent dans un tableau où 
 
-    o	le label 0 noir correspond à {toute l'image moins le foie segmenté} 
+        o le label 0 noir correspond à {toute l'image moins le foie segmenté} 
     
-    o	le label 1 bleu correspond au {foie segmenté} (visible quand on glisse le menu déroulant vers le bas)
+        o le label 1 bleu correspond au {foie segmenté} (visible quand on glisse le menu déroulant vers le bas)
     
 •	Il est possible d'exporter le tableau pour l'afficher à droite de l'écran en cliquant sur "Exporter en tableau"
 
@@ -443,25 +443,25 @@ Même étapes que précédemment
 
 •	Une fenêtre "Open" apparaît pour que l’utilisateur recherche le fichier correspondant à la segmentation de la cavité abdominale au format NIFTI (enregistrement effectué automatiquement après l’utilisation correcte du module "Pour le RECEVEUR : Volumétrie et distances dans la cavité abdominale")
 
-	o	Rechercher le fichier "CaviteAbdoReceveur.nii"
+        o Rechercher le fichier "CaviteAbdoReceveur.nii"
 	
-    	o	Cliquer sur le fichier
+        o Cliquer sur le fichier
 	
-    	o	Cliquer sur "Open" en bas à droite de la fenêtre
+        o Cliquer sur "Open" en bas à droite de la fenêtre
 	
-   	o	Patienter le temps que le volume se charge dans la fenêtre de visualisation
+        o Patienter le temps que le volume se charge dans la fenêtre de visualisation
 
 •	Cliquer sur "Charger le FOIE SEGMENTÉ"
 
 •	Une fenêtre "Open" apparaît pour que l’utilisateur recherche le fichier correspondant à la segmentation du foie au format NIFTI (enregistrement effectué automatiquement après l’utilisation correcte du module "Pour le DONNEUR : Segmentation semi-automatique du foie")
 
-    	o	Rechercher le fichier "FoieSegmenteDonneur.nii"
+        o Rechercher le fichier "FoieSegmenteDonneur.nii"
     
-    	o	Cliquer sur le fichier
+        o Cliquer sur le fichier
 	
-    	o	Cliquer sur "Open" en bas à droite de la fenêtre
+        o Cliquer sur "Open" en bas à droite de la fenêtre
 	
-    	o	Patienter le temps que le volume se charge dans la fenêtre de visualisation
+        o Patienter le temps que le volume se charge dans la fenêtre de visualisation
 
 
 **4. SUPERPOSER LES IMAGES CHARGÉES**
@@ -472,20 +472,20 @@ cavité abdominale
 
 •	Dans "General Registration (Elastix)" :
 
-	o Pour l’option "Fixed volume", choisir le volume de la cavité abdominale segmentée
+        o Pour l’option "Fixed volume", choisir le volume de la cavité abdominale segmentée
 qui vient d’être chargé
 
-	o Pour l’option "Moving volume", choisir le volume du foie segmenté qui vient d’être
+        o Pour l’option "Moving volume", choisir le volume du foie segmenté qui vient d’être
 chargé
 
-	o Pour l’option "Preset", choisir "generic rigid (all)"
+        o Pour l’option "Preset", choisir "generic rigid (all)"
 	
-	o Choisir "Create new Volume" dans l’option "Output volume" et cliquer sur le volume
+        o Choisir "Create new Volume" dans l’option "Output volume" et cliquer sur le volume
 créé "Volume" s’il n’est pas déjà présélectionné
 
-	o Cliquer sur "Apply" puis attendre la fin du recalage
+        o Cliquer sur "Apply" puis attendre la fin du recalage
 	
-	o Dès qu’apparaît "Registration is completed", dans la box sous "Apply", fermer la
+        o Dès qu’apparaît "Registration is completed", dans la box sous "Apply", fermer la
 fenêtre "General Registration (Elastix)" en cliquant sur la croix en haut à droite de la
 fenêtre
 
@@ -514,9 +514,9 @@ Une fois la segmentation terminée et satisfaisante, il est possible de SAUVEGAR
 
 •	Choisir le répertoire de destination de la sauvegarde :
 
-    o	dans "Directory" (colonne de droite) pour chaque élément sauvegarder
+        o dans "Directory" (colonne de droite) pour chaque élément sauvegarder
     
-    o	dans "Change directory for selected files" en bas de la fenêtre pour changer le répertoire pour tous les fichiers sauvegardés
+        o dans "Change directory for selected files" en bas de la fenêtre pour changer le répertoire pour tous les fichiers sauvegardés
     
 •	Cliquer sur "Save"
 
@@ -531,49 +531,49 @@ Une fois la segmentation terminée et satisfaisante, il est possible de SAUVEGAR
 
 **•	Ouverture : **
 
-o	Déconnecte des composantes connexes d'intensités différentes
+        o Déconnecte des composantes connexes d'intensités différentes
 
-o	Préserve la forme des objets
+        o Préserve la forme des objets
 
-o	Ôte des détails ou des petits objets
+        o Ôte des détails ou des petits objets
 
-o	Peut diviser les objets
+        o Peut diviser les objets
 
-o	Ne préserve pas la connexité
+        o Ne préserve pas la connexité
 
 **•	Fermeture : **
 
-o	Remplit des petites cavités
+        o Remplit des petites cavités
 
-o	Connecte les composants connectés proches, comble les trous entre des pixels voisins d’intensités similaires
+        o Connecte les composants connectés proches, comble les trous entre des pixels voisins d’intensités similaires
 
-o	Ne préserve pas la continuité
+        o Ne préserve pas la continuité
 
 **•	Dilatation : **
 
-o	Correspond à une "addition"
+        o Correspond à une "addition"
 
-o	Augmente la taille des objets = expansion du volume
+        o Augmente la taille des objets = expansion du volume
 
-o	Peut boucher les trous et les concavités
+        o Peut boucher les trous et les concavités
 
-o	Peut connecter les objets voisins 
+        o Peut connecter les objets voisins 
 
-o	Fait disparaître des petits détails
+        o Fait disparaître des petits détails
 
 **•	Érosion :**
 
-o	Correspond à une "soustraction"
+        o Correspond à une "soustraction"
 
-o	Fait décroître la taille des objets = diminution du volume
+        o Fait décroître la taille des objets = diminution du volume
 
-o	Peut diviser un objet avec des concavités ou des trous en plusieurs objets
+        o Peut diviser un objet avec des concavités ou des trous en plusieurs objets
 
-o	Fait disparaître les petits objets et les détails
+        o Fait disparaître les petits objets et les détails
 
 **•	Remplissage des trous : **
 
-o	Remplit les trous dans les objets
+        o Remplit les trous dans les objets
 
 
 
