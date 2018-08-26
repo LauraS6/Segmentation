@@ -538,10 +538,6 @@ class CaviteWidget(ScriptedLoadableModuleWidget):
     
   def onSlicer(self):
     if self.loadFromSlicer.checked:  
-      reformatModuleWidget = slicer.modules.dicom.createNewWidgetRepresentation()
-      reformatModuleWidget.setMRMLScene(slicer.app.mrmlScene())
-      reformatModuleWidget.show() 
-      self.masterVolumeNode = self.inputSlicer.currentNode() 
       prompt = ctk.ctkMessageBox()
       scriptpath = os.path.dirname(__file__)
       iconpath = os.path.join(scriptpath, 'Resources', 'Icons', 'Cavite.png')
@@ -557,6 +553,10 @@ class CaviteWidget(ScriptedLoadableModuleWidget):
       if answer == qt.QMessageBox.Cancel:
         logging.info(u"Op\u00e9ration annul\u00e9e par l\u00b4utilisateur, fin en cours...")
         return 
+      reformatModuleWidget = slicer.modules.dicom.createNewWidgetRepresentation()
+      reformatModuleWidget.setMRMLScene(slicer.app.mrmlScene())
+      reformatModuleWidget.show() 
+      self.masterVolumeNode = self.inputSlicer.currentNode() 
     self.applyButton.enabled = self.masterVolumeNode and slicer.mrmlScene.GetNodeByID(self.masterVolumeNode.GetID())
     self.applyButton9.enabled = self.masterVolumeNode and slicer.mrmlScene.GetNodeByID(self.masterVolumeNode.GetID())
     self.setupButtoncor.enabled = self.masterVolumeNode and slicer.mrmlScene.GetNodeByID(self.masterVolumeNode.GetID())
@@ -1412,7 +1412,7 @@ class CaviteLogic(ScriptedLoadableModuleLogic):
 					# Sauvegarde du volume dans un fichier NIFTI
     c = slicer.util.arrayFromVolume(outputVolume)
     volumeLogic = slicer.modules.volumes.logic()
-    outfoie = volumeLogic.CloneVolume(slicer.mrmlScene, outputVolume, 'VolumeFoie')
+    outfoie = volumeLogic.CloneVolume(slicer.mrmlScene, outputVolume, 'VolumeCavite')
     vshape = tuple(reversed(c.shape))
     vcomponents = 1
     vimage = outfoie.GetImageData()
