@@ -892,10 +892,6 @@ class SegmentationFoieWidget(ScriptedLoadableModuleWidget):
   
   def onSlicer(self):
     if self.loadFromSlicer.checked:  
-      reformatModuleWidget = slicer.modules.dicom.createNewWidgetRepresentation()
-      reformatModuleWidget.setMRMLScene(slicer.app.mrmlScene())
-      reformatModuleWidget.show() 
-      self.masterVolumeNode = self.inputSlicer.currentNode() 
 
       prompt = ctk.ctkMessageBox()
       scriptpath = os.path.dirname(__file__)
@@ -912,7 +908,11 @@ class SegmentationFoieWidget(ScriptedLoadableModuleWidget):
       if answer == qt.QMessageBox.Cancel:
         logging.info(u"Op\u00e9ration annul\u00e9e par l\u00b4utilisateur, fin en cours...")
         return 
-		
+      reformatModuleWidget = slicer.modules.dicom.createNewWidgetRepresentation()
+      reformatModuleWidget.setMRMLScene(slicer.app.mrmlScene())
+      reformatModuleWidget.show() 
+      self.masterVolumeNode = self.inputSlicer.currentNode() 
+	
     self.applyButton.enabled = self.masterVolumeNode and slicer.mrmlScene.GetNodeByID(self.masterVolumeNode.GetID())
     self.applyButton3.enabled = self.filtreGaussian and self.filtreMedian and self.masterVolumeNode and slicer.mrmlScene.GetNodeByID(self.masterVolumeNode.GetID())
     self.applyButton4.enabled = self.masterVolumeNode and slicer.mrmlScene.GetNodeByID(self.masterVolumeNode.GetID())
