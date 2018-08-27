@@ -619,7 +619,7 @@ class CaviteWidget(ScriptedLoadableModuleWidget):
         keys = recdcms.keys()
         diag = qt.QInputDialog()
         scriptpath = os.path.dirname(__file__)
-        iconpath = os.path.join(scriptpath, 'Resources', 'Icons', 'SegmentationFoie.png')
+        iconpath = os.path.join(scriptpath, 'Resources', 'Icons', 'SegmentationCavite.png')
         iconpath = iconpath.replace('\\', '/')
         icon = qt.QIcon(iconpath)
         diag.setWindowIcon(icon)
@@ -675,7 +675,7 @@ class CaviteWidget(ScriptedLoadableModuleWidget):
     
     
 #######################
-# Fonctions pour step 2 : Entourage du foie
+# Fonctions pour step 2 : Entourage de la cavite
 #######################  
   def setAndObserveParameterNode(self, parameterNode):
     if parameterNode == self.parameterNode and self.parameterNodeObserver:
@@ -1527,7 +1527,7 @@ class CaviteLogic(ScriptedLoadableModuleLogic):
 
      
 ###################
-# Fonction step 3 : CALCULER LE VOLUME DU FOIE
+# Fonction step 3 : CALCULER LE VOLUME DE LA CAVITE
 ###################
 class LabelStatLogic(ScriptedLoadableModuleLogic):
   def __init__(self, grayscaleNode, labelNode, colorNode=None, nodeBaseName=None, fileName=None):  
