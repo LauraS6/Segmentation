@@ -6,10 +6,10 @@ import logging
 # -*- coding: utf-8 -*-
 
 #
-# Superposition
+# SuperpositionFoieCavite
 #
 
-class Superposition(ScriptedLoadableModule):
+class SuperpositionFoieCavite(ScriptedLoadableModule):
   def __init__(self, parent):
       ScriptedLoadableModule.__init__(self, parent)
       self.parent.title = u"Superposition de la cavit\u00e9 abdominale avec le foie segment\u00e9"
@@ -24,10 +24,10 @@ Superposition du foie segment\u00e9 et de la cavit\u00e9 abdominale segment\u00e
         """
 
 #
-# SuperpositionWidget
+# SuperpositionFoieCaviteWidget
 #
 
-class SuperpositionWidget(ScriptedLoadableModuleWidget):
+class SuperpositionFoieCaviteWidget(ScriptedLoadableModuleWidget):
   def setup(self):
     ScriptedLoadableModuleWidget.setup(self)
     
@@ -169,7 +169,7 @@ class SuperpositionWidget(ScriptedLoadableModuleWidget):
         
         
   def onSuperposButton(self):
-    logic = SuperpositionLogic()
+    logic = SuperpositionFoieCaviteLogic()
     lm = slicer.app.layoutManager()
     lm.setLayout(slicer.vtkMRMLLayoutNode.SlicerLayoutFourUpView)
     VolumeNodecavite = self.inputSelector1.currentNode()
@@ -198,9 +198,9 @@ class SuperpositionWidget(ScriptedLoadableModuleWidget):
 
 
 #
-# SuperpositionLogic
+# SuperpositionFoieCaviteLogic
 #
-class SuperpositionLogic(ScriptedLoadableModuleLogic):
+class SuperpositionFoieCaviteLogic(ScriptedLoadableModuleLogic):
   def hasImageData(self,volumeNode):
     """This is an example logic method that
         returns true if the passed in volume
@@ -229,14 +229,14 @@ class SuperpositionLogic(ScriptedLoadableModuleLogic):
     return True
 
 
-class SuperpositionTest(ScriptedLoadableModuleTest):
+class SuperpositionFoieCaviteTest(ScriptedLoadableModuleTest):
   def setUp(self):
     slicer.mrmlScene.Clear(0)
     
   def runTest(self):
     self.setUp()
-    self.test_Superposition1()
+    self.test_SuperpositionFoieCavite1()
         
-  def test_Superposition1(self):
+  def test_SuperpositionFoieCavite1(self):
     self.delayDisplay("Starting the test")
     self.delayDisplay('Test passed !')
